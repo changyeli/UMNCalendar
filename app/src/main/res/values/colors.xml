@@ -3,4 +3,6 @@
     <color name="colorPrimary">#800000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="windoBackground">#800000</color>
+    <color name="registerColor">#ffffff</color>
 </resources>
