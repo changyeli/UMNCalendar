@@ -2,8 +2,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/windoBackground"
-    android:textColor="#ffffff">
+    android:background="@color/windowBackground"
+    >
 
     <!-- SIGN IN SETUP-->
     <LinearLayout
@@ -13,6 +13,7 @@
         android:paddingTop="26dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
+        android:textColor="@color/white"
         >
         <!-- TODO: Add LOGO here-->
 
@@ -24,13 +25,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
-            <EditText android:id="@+id/input_email"
+            <EditText
+                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
                 android:hint="@string/prompt_email"
-                android:textColor="@color/registerColor"
-               />
+                android:inputType="textEmailAddress"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -41,11 +43,13 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
-            <EditText android:id="@+id/input_password"
+            <EditText
+                android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/prompt_password"
                 android:inputType="textPassword"
-                android:hint="@string/prompt_password" />
+                android:textColorLink="@android:color/white" />
             </android.support.design.widget.TextInputLayout>
 
         <!--login button-->
@@ -56,7 +60,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="@string/action_sign_in"/>
+            android:text="@string/action_sign_in_short" />
 
         <TextView android:id="@+id/link_signup"
             android:layout_width="fill_parent"
