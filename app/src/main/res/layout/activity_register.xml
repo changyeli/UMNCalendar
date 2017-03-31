@@ -1,17 +1,20 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingBottom="8dp"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="8dp"
-    tools:context="umn.umncalendar.LoginActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/windowBackground"
+    >
 
-    <!-- Login progress -->
-
+    <!-- SIGN IN SETUP-->
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="26dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:textColor="@color/white"
+        >
 
         <!-- account name-->
         <android.support.design.widget.TextInputLayout
@@ -47,20 +50,6 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <!-- x500 setting-->
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id = "@id/input_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailSubject"
-                android:hint="@string/prompt_x500"
-                />
-        </android.support.design.widget.TextInputLayout>
 
         <!-- password setting -->
 
@@ -74,6 +63,21 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="@string/prompt_password"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- x500 setting-->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id = "@id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailSubject"
+                android:hint="@string/prompt_x500"
+                />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
@@ -92,4 +96,5 @@
             android:text="@string/action_sign_in"
             android:gravity="center"
             android:textSize="16sp"/>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

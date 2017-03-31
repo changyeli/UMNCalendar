@@ -60,30 +60,8 @@ public class LoginActivity extends AppCompatActivity {
     public void login(){
 
     }// login
-    
-
-    /*
-        make sure that every input is correct
-     */
-    public boolean inputCorrect(){
-        boolean valid = true;
-
-        String email = emailTag.getText().toString();
-        String password = passwordTag.getText().toString();
-
-        if(email.isEmpty() || Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailTag.setError("This email address is invalid");
-            valid = false;
-        }
-
-        if (password.isEmpty() || password.length() <=6){
-            passwordTag.setError("This password is too short");
-            valid = false;
-        }
-        return valid;
 
 
-    }// authenticate
 
 
 
