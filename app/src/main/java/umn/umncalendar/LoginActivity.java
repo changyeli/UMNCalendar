@@ -3,6 +3,7 @@ package umn.umncalendar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,11 @@ public class LoginActivity extends AppCompatActivity {
     private Button signinBtn;
     private TextView signupBtn;
 
+
+    /*
+        activity is created
+     */
+    @Override
     public void OnCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -48,9 +54,36 @@ public class LoginActivity extends AppCompatActivity {
 
     }// onCreate()
 
+    /*
+        log in process
+     */
     public void login(){
 
     }// login
+    
+
+    /*
+        make sure that every input is correct
+     */
+    public boolean inputCorrect(){
+        boolean valid = true;
+
+        String email = emailTag.getText().toString();
+        String password = passwordTag.getText().toString();
+
+        if(email.isEmpty() || Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailTag.setError("This email address is invalid");
+            valid = false;
+        }
+
+        if (password.isEmpty() || password.length() <=6){
+            passwordTag.setError("This password is too short");
+            valid = false;
+        }
+        return valid;
+
+
+    }// authenticate
 
 
 
