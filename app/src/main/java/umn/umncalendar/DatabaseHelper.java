@@ -34,6 +34,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "AUTOINCREMENT," + key_username + "TEXT," + key_password + "TEXT)");
     }
 
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS" + userTable);
+        onCreate(db);
+    }
+
 
     /**
      * create a new entry into the database
@@ -63,24 +68,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * get user info based on user id in the database
      *
-     * @param id: uid in the database
+     * @param username: username in the database
      * @return user info
      */
-    public UserDatabase getUser(int id) {
+    public UserDatabase getUser(String username) {
         SQLiteDatabase db = getWritableDatabase();
-        Cursor cursor = db.query(userTable, new String[]{key_uid, key_username, key_password},
-                key_uid + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
+        Cursor c = db.rawQuery("SELECT " + key_username + "FROM " + userTable + "WHERE" +
+                username + "=?", new String[]{key_uid, key_username, key_password});
+        if (c != null) {
+            c.moveToFirst();
         }
 
-        UserDatabase user = new UserDatabase(Integer.parseInt(cursor.getString(0)), cursor
-                .getString(1), cursor.getString(2));
+        UserDatabase user = new UserDatabase(Integer.parseInt(c.getString(0)), c
+                .getString(1), c.getString(2));
         db.close();
-        cursor.close();
+        c.close();
 
         return user;
 
     }
-    
+
+
 }// class end
