@@ -58,27 +58,26 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_password"
+            <EditText android:id="@id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="@string/prompt_password"/>
         </android.support.design.widget.TextInputLayout>
 
-        <!-- x500 setting-->
-
+        <!-- password confirmation-->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id = "@id/input_name"
+            <EditText android:id="@id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailSubject"
-                android:hint="@string/prompt_x500"
-                />
+                android:inputType="textPassword"
+                android:hint="@string/password_confirm"/>
         </android.support.design.widget.TextInputLayout>
+
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_signup"

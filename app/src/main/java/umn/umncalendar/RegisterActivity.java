@@ -14,10 +14,14 @@ import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
-    private EditText fullname;
-    private EditText email;
-    private EditText password;
-    private EditText x500;
+    private EditText fullnameTag;
+    private EditText emailTag;
+    private EditText passwordTag;
+    private EditText passwordCon;
+    private Button signupBtn;
+    private TextView signinBtn;
+    private DatabaseHelper dbHelper;
+    private UserDatabase user;
 
     /*
         activity is created
@@ -25,37 +29,61 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        define();
 
-        fullname = (EditText)findViewById(R.id.input_name);
-        email = (EditText)findViewById(R.id.input_email);
+        signinBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(){
+                if (!valid){
+
+                }
+            }
+        });
+
     }
 
-
-
-
-
-
-    /*
-        make sure that every input is correct
+    /**
+     * define all clickable resources in the register page
      */
-    public boolean inputCorrect(){
+    public void define(){
+        fullnameTag = (EditText)findViewById(R.id.input_name);
+        emailTag = (EditText)findViewById(R.id.input_email);
+        passwordTag = (EditText)findViewById(R.id.input_password);
+        passwordCon = (EditText)findViewById(R.id.input_password);
+        signupBtn = (Button)findViewById(R.id.btn_signup);
+        signinBtn = (TextView) findViewById(R.id.link_login);
+        dbHelper = new DatabaseHelper(this);
+    }
+
+    /**
+     * check if the input is correct and valid
+     * @param email: email of a new account
+     * @param password: password of a new account
+     * @param name: new account name
+     * @param passwordCon: the repeated password from the new user
+     * @return
+     */
+    public boolean inputCorrect(String email, String password, String name, String passwordCon){
         boolean valid = true;
 
-        String email = emailTag.getText().toString();
-        String password = passwordTag.getText().toString();
-
-        if(email.isEmpty() || Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailTag.setError("This email address is invalid");
+        if (email.endsWith("umn.edu")) {
+            emailTag.setError("This email address is invalid.");
             valid = false;
         }
 
-        if (password.isEmpty() || password.length() <=6){
-            passwordTag.setError("This password is too short");
+        if (email.equals("") || password.equals("") || passwordCon.equals("") || name.equals("")){
+            emailTag.setError("This is required field.");
             valid = false;
         }
-        return valid;
 
-
-    }// inputCorrect
+        if (!password.equals(passwordCon)) {
+            passwordTag.setError("This password is invalid.");
+        }
 
     }
+
+
+
+
+
+}// class end

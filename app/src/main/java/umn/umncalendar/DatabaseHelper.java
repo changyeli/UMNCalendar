@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String key_uid = "uid";
     private static final String key_username = "username";
     private static final String key_password = "password";
+    private static final String key_email = "email";
 
     public DatabaseHelper(Context context) {
         super(context, databaseName, null, database_version);
@@ -31,7 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE" + userTable + "(" + key_uid + "INTEGER PRIMARY KEY " +
-                "AUTOINCREMENT," + key_username + "TEXT," + key_password + "TEXT)");
+                "AUTOINCREMENT," + key_email + "TEXT PRIMARY KEY" + key_username + "TEXT," +
+                key_password + "TEXT)");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -49,6 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(key_username, user.getUsername());
+        values.put(key_email, user.getEmail());
         values.put(key_password, user.getPassword());
         db.insert(userTable, null, values);
         db.close();
@@ -57,30 +60,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * delete an entry from the database
      *
-     * @param user: user info
+     * @param email: email of the account
      */
-    public void deleteUser(UserDatabase user) {
+    public void deleteUser(String email) {
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(userTable, key_uid + " =? ", new String[]{String.valueOf(user.getUid())});
+        db.delete(userTable, email + " =? ", new String[]{key_email});
         db.close();
     }
 
     /**
      * get user info based on user id in the database
      *
-     * @param username: username in the database
+     * @param email: username in the database
      * @return user info
      */
-    public UserDatabase getUser(String username) {
+    public UserDatabase getUser(String email) {
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("SELECT " + key_username + "FROM " + userTable + "WHERE" +
-                username + "=?", new String[]{key_uid, key_username, key_password});
+        Cursor c = db.rawQuery("SELECT " + key_email + "FROM " + userTable + "WHERE" +
+                email + "=?", new String[]{key_uid, key_email, key_username, key_password});
         if (c != null) {
             c.moveToFirst();
         }
 
         UserDatabase user = new UserDatabase(Integer.parseInt(c.getString(0)), c
-                .getString(1), c.getString(2));
+                .getString(1), c.getString(2), c.getString(3));
         db.close();
         c.close();
 

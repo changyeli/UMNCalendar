@@ -9,17 +9,20 @@ public class UserDatabase {
     private String username;
     private String password;
     private int uid;
+    private String email;
 
     /**
      * constructor
      * @param uid: user id in the database
      * @param username: username of the account
      * @param password: password of the account
+     * @param email: email of the account
      */
-    public UserDatabase(int uid, String username, String password){
+    public UserDatabase(int uid, String email, String username, String password){
         this.uid = uid;
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     /**
@@ -44,6 +47,14 @@ public class UserDatabase {
      */
     public int getUid(){
         return uid;
+    }
+
+    /**
+     * get email of the account
+     * @return user email in the database
+     */
+    public String getEmail(){
+        return email;
     }
 
 
