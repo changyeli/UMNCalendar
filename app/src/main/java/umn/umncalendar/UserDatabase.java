@@ -8,18 +8,15 @@ package umn.umncalendar;
 public class UserDatabase {
     private String username;
     private String password;
-    private int uid;
     private String email;
 
     /**
      * constructor
-     * @param uid: user id in the database
      * @param username: username of the account
      * @param password: password of the account
      * @param email: email of the account
      */
-    public UserDatabase(int uid, String email, String username, String password){
-        this.uid = uid;
+    public UserDatabase(String email, String username, String password){
         this.username = username;
         this.password = password;
         this.email = email;
@@ -41,13 +38,6 @@ public class UserDatabase {
         return password;
     }
 
-    /**
-     * get uid of the account
-     * @return user id in the database
-     */
-    public int getUid(){
-        return uid;
-    }
 
     /**
      * get email of the account
