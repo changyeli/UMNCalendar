@@ -39,7 +39,7 @@ public class Calendar_tab extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-                                // set day of month , month and year value in the edit text
+                                // set day of month , month and year value in the edit text below
                                 date.setText(dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + year);
 

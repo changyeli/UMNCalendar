@@ -14,7 +14,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="#d4d4d4"
-        android:hint="Select Date..."
+        android:hint="Select Date.."
         android:padding="15dp"
         android:textColor="#897"
         android:textColorHint="#090"
