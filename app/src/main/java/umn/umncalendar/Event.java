@@ -1,0 +1,165 @@
+package umn.umncalendar;
+
+import android.icu.util.ULocale;
+import android.media.Image;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Created by AartiRajan on 4/3/2017.
+ */
+
+public class Event {
+    public enum EventStatus {
+        DRAFT(1), CANCELLED(2), PAST(3), FUTURE(4);
+        private int value;
+
+        EventStatus(int value) {
+            this.value=value;
+        }
+    }
+
+    public enum EventCategory {
+        SPORTS(1), MUSIC(2), DANCE(3), ACADEMIC(4), SOCIAL(5);
+        private int value;
+
+        EventCategory(int value) {
+            this.value=value;
+        }
+    }
+
+    int eventId;
+    int hostId;
+    String eventName;
+    Image poster;
+    Date date;
+    String desc;
+    EventStatus status;
+    EventCategory category;
+    List<String> keywords;
+    String address;
+    boolean food;
+    boolean RSVP;
+
+    public Event(int eventId, int hostId, String eventName, Image poster, Date date, String desc, EventStatus status, int category, List<String> keywords, String address, boolean food, boolean RSVP) {
+        this.eventId = eventId;
+        this.hostId = hostId;
+        this.eventName = eventName;
+        this.poster = poster;
+        this.date = date;
+        this.desc = desc;
+        this.status = status;
+        this.category = EventCategory.values()[category];
+        this.keywords = keywords;
+        this.address = address;
+        this.food = food;
+        this.RSVP = RSVP;
+    }
+
+    public Event(int eventId, int hostId, String eventName) {
+        this.eventId = eventId;
+        this.hostId = hostId;
+        this.eventName = eventName;
+    }
+
+    public void addKeyword(String keyword){
+        this.keywords.add(keyword);
+    }
+
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+
+    public int getHostId() {
+        return hostId;
+    }
+
+    public void setHostId(int hostId) {
+        this.hostId = hostId;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public Image getPoster() {
+        return poster;
+    }
+
+    public void setPoster(Image poster) {
+        this.poster = poster;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public EventStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(EventStatus status) {
+        this.status = status;
+    }
+
+    public EventCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(EventCategory category) {
+        this.category = category;
+    }
+
+    public List<String> getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(List<String> keywords) {
+        this.keywords = keywords;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public boolean isFood() {
+        return food;
+    }
+
+    public void setFood(boolean food) {
+        this.food = food;
+    }
+
+    public boolean isRSVP() {
+        return RSVP;
+    }
+
+    public void setRSVP(boolean RSVP) {
+        this.RSVP = RSVP;
+    }
+}
