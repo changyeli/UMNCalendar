@@ -4,6 +4,7 @@ import android.icu.util.ULocale;
 import android.media.Image;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,8 +34,8 @@ public class Event {
     int eventId;
     int hostId;
     String eventName;
-    Image poster;
-    Date date;
+    int poster;
+    Calendar date;
     String desc;
     EventStatus status;
     EventCategory category;
@@ -42,8 +43,18 @@ public class Event {
     String address;
     boolean food;
     boolean RSVP;
+    String imageName;
+    int imagePoster;
 
-    public Event(int eventId, int hostId, String eventName, Image poster, Date date, String desc, EventStatus status, int category, List<String> keywords, String address, boolean food, boolean RSVP) {
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public Event(int eventId, int hostId, String eventName, int poster, Calendar date, String desc, EventStatus status, int category, List<String> keywords, String address, boolean food, boolean RSVP) {
         this.eventId = eventId;
         this.hostId = hostId;
         this.eventName = eventName;
@@ -93,19 +104,19 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public Image getPoster() {
+    public int getPoster() {
         return poster;
     }
 
-    public void setPoster(Image poster) {
+    public void setPoster(int poster) {
         this.poster = poster;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 

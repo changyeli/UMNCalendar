@@ -17,8 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
-
 public class EventViewActivity extends AppCompatActivity {
 
     /**
@@ -64,7 +62,6 @@ public class EventViewActivity extends AppCompatActivity {
         });
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -135,6 +132,7 @@ public class EventViewActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch(position){
