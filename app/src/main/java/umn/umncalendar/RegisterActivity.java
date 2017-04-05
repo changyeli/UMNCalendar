@@ -182,7 +182,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new LoginActivity.UserLoginTask(email, password);
+            //*mAuthTask = new LoginActivity.UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
     }
@@ -235,7 +235,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return new CursorLoader(this,
+        /*return new CursorLoader(this,
                 // Retrieve data rows for the device user's 'profile' contact.
                 Uri.withAppendedPath(ContactsContract.Profile.CONTENT_URI,
                         ContactsContract.Contacts.Data.CONTENT_DIRECTORY), LoginActivity.ProfileQuery.PROJECTION,
@@ -247,7 +247,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
                 // Show primary email addresses first. Note that there won't be
                 // a primary email address if the user hasn't specified one.
-                ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
+                ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");*/
+        return null;
     }
 
     @Override
@@ -255,7 +256,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         List<String> emails = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            emails.add(cursor.getString(LoginActivity.ProfileQuery.ADDRESS));
+            //*emails.add(cursor.getString(LoginActivity.ProfileQuery.ADDRESS));
             cursor.moveToNext();
         }
 
@@ -269,11 +270,11 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
-        ArrayAdapter<String> adapter =
+        /*ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-        mEmailView.setAdapter(adapter);
+        mEmailView.setAdapter(adapter);*/
     }
 
 
