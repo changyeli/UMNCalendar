@@ -3,6 +3,7 @@ package umn.umncalendar;
 import android.icu.util.ULocale;
 import android.media.Image;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -61,6 +62,7 @@ public class Event {
         this.eventId = eventId;
         this.hostId = hostId;
         this.eventName = eventName;
+        keywords = new ArrayList<>();
     }
 
     public void addKeyword(String keyword){

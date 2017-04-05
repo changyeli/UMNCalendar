@@ -12,6 +12,18 @@ import umn.umncalendar.Event.EventStatus;
 public class EventManager {
     List<Event> eventList;
     //List<Host> hostList;
+
+    /**
+     * Temp method, move to user manager later
+     * */
+    public List<String> getInterests(){
+        List<String> res = new ArrayList<>();
+        res.add("Sports");
+        res.add("Music");
+        res.add("Art");
+        return res;
+    }
+
     public EventManager(){
         eventList = new ArrayList<>();
         initEvents();
@@ -26,6 +38,7 @@ public class EventManager {
         one.setCategory(EventCategory.MUSIC);
         one.setAddress("Coffman Memorial Union");
         one.setStatus(EventStatus.FUTURE);
+        one.getKeywords().add("Music");
         res.add(one);
         return res;
     }
@@ -65,6 +78,22 @@ public class EventManager {
             for(EventStatus es : statuses) {
                 if (e.getStatus().equals(es)){
                     res.add(e);
+                }
+            }
+        }
+
+        return res;
+    }
+
+    public List<Event> getRecommendedEvents(List<String> interests){
+        List<Event> res = new ArrayList<>();
+
+        for(Event e : eventList){
+            if (e.getStatus().equals(EventStatus.FUTURE)){
+                for(String i : interests){
+                    if(e.getKeywords().contains(i) || e.getCategory().name().equals(i)){
+                        res.add(e);
+                    }
                 }
             }
         }
