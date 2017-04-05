@@ -17,7 +17,8 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/check_box_student"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@color/white"/>
 
     <CheckBox
         android:id="@+id/checkBox_host"
@@ -27,7 +28,8 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/check_box_host"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/button_continue"

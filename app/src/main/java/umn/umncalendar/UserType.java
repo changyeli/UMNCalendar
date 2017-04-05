@@ -23,7 +23,7 @@ public class UserType extends AppCompatActivity {
         define();
         continueBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                
+
             }
 
         });
