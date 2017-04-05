@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String key_username = "username";
     private static final String key_password = "password";
     private static final String key_email = "email";
+    private static final String key_type = "type";
 
     public DatabaseHelper(Context context) {
         super(context, databaseName, null, database_version);
@@ -32,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE" + userTable + "(" + key_email + "TEXT PRIMARY KEY" +
                 key_username + "TEXT," +
-                key_password + "TEXT)");
+                key_password + "TEXT" + key_type + "TEXT");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -52,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(key_email, user.getEmail());
         values.put(key_username, user.getUsername());
         values.put(key_password, user.getPassword());
+        values.put(key_type, user.getType());
         db.insert(userTable, null, values);
         db.close();
     }
@@ -63,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public void deleteUser(String email) {
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(userTable, email + " =? ", new String[]{key_email});
+        db.delete(userTable, key_email + " =? ", new String[]{email});
         db.close();
     }
 
@@ -76,13 +78,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public UserDatabase getUser(String email) {
         SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.rawQuery("SELECT " + key_email + "FROM " + userTable + "WHERE" +
-                email + "=?", new String[]{key_email, key_username, key_password});
+                key_email + "=?", new String[]{email});
         if (c != null) {
             c.moveToFirst();
         }
 
         UserDatabase user = new UserDatabase(c.getString(0), c
-                .getString(1), c.getString(2));
+                .getString(1), c.getString(2), c.getString(3));
         db.close();
         c.close();
 

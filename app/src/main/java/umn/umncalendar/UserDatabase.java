@@ -9,6 +9,7 @@ public class UserDatabase {
     private String username;
     private String password;
     private String email;
+    private String type;
 
     /**
      * constructor
@@ -16,10 +17,11 @@ public class UserDatabase {
      * @param password: password of the account
      * @param email: email of the account
      */
-    public UserDatabase(String email, String username, String password){
+    public UserDatabase(String email, String username, String password, String type){
         this.username = username;
         this.password = password;
         this.email = email;
+        this.type = type;
     }
 
     /**
@@ -46,6 +48,15 @@ public class UserDatabase {
     public String getEmail(){
         return email;
     }
+
+    /**
+     * get type of the account
+     * @return either "student" or "host"
+     */
+    public String getType(){
+        return type;
+    }
+
 
 
 }

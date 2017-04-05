@@ -13,7 +13,9 @@
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is invalid</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">Contacts permissions are needed for providing email
+        completions.</string>
+    <string name="check_box_student">Look For Event</string>
+    <string name="check_box_host">Be A Host</string>
+    <string name="button_continue">Continue</string>
 </resources>

@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
         fullnameTag = (EditText) findViewById(R.id.input_name);
         emailTag = (EditText) findViewById(R.id.input_email);
         passwordTag = (EditText) findViewById(R.id.input_password);
-        passwordCon = (EditText) findViewById(R.id.input_password);
+        passwordCon = (EditText) findViewById(R.id.input_password_con);
         signupBtn = (Button) findViewById(R.id.btn_signup);
         signinBtn = (TextView) findViewById(R.id.link_login);
         dbHelper = new DatabaseHelper(this);
