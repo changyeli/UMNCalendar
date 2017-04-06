@@ -3,6 +3,7 @@ package umn.umncalendar;
 import android.icu.util.ULocale;
 import android.media.Image;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -112,8 +113,11 @@ public class Event {
         this.poster = poster;
     }
 
-    public Calendar getDate() {
-        return date;
+    public String getFormattedDate() {
+        String pattern = "EEE MMM dd HH:mm aa";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        String evDate = sdf.format(date.getTime());
+        return evDate;
     }
 
     public void setDate(Calendar date) {

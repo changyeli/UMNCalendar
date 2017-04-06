@@ -29,7 +29,7 @@ public class EventManager {
 
     public static List<Event> initEvents(){
         List<Event> res = new ArrayList<Event>();
-        Calendar calendar = new GregorianCalendar(2017,3,31,8,0,0);
+        Calendar calendar = new GregorianCalendar(2017,3,31,8,0);
         Event one = new Event(1,1,"Spring Fest");
         one.setDate(calendar);
         one.setStatus(EventStatus.FUTURE);
@@ -48,6 +48,7 @@ public class EventManager {
         two.setStatus(EventStatus.FUTURE);
         two.getKeywords().add("Coffee");
         two.setPoster(R.mipmap.coffee_hour);
+        two.setFood(Boolean.TRUE);
         res.add(two);
         return res;
     }
