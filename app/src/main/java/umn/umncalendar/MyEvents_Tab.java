@@ -43,14 +43,14 @@ public class MyEvents_Tab extends Fragment {
             @Override
             public void onClick(View v){
                 DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(), "datePicker");
+                newFragment.show(getFragmentManager(), "datePicker_myevents");
             }
         });
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(), "datePicker");
+                newFragment.show(getFragmentManager(), "datePicker_myevents");
             }
         });
 
