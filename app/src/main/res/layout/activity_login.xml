@@ -62,13 +62,15 @@
             android:padding="12dp"
             android:text="@string/action_sign_in_short" />
 
-        <TextView android:id="@+id/link_signup"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginBottom="24dp"
-                  android:text="@string/action_register"
-                  android:gravity="center"
-                  android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/link_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:onClick="itemClicked"
+            android:text="@string/action_register"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 </ScrollView>

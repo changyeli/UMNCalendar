@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText emailTag;
     private EditText passwordTag;
     private EditText passwordCon;
+    private CheckBox check_student;
+    private CheckBox check_host;
+
     private Button signupBtn;
     private TextView signinBtn;
     private DatabaseHelper dbHelper;
@@ -25,15 +29,17 @@ public class RegisterActivity extends AppCompatActivity {
     private String name;
     private String password;
     private String passwordC;
-    private String type;
-    private UserType userType_1;
+    private String userType;
+
+    private static final String typeHost = "host";
+    private static final String typeStudent = "student";
 
 
     /**
      *  activity is created
      */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         define();
@@ -45,7 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
                             .show();
 
                 }
-                user = new UserDatabase(email, name, password, type);
+                userType = itemClicked(v);
+                user = new UserDatabase(email, name, password, userType);
                 dbHelper.createUser(user);
                 Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_LONG)
                         .show();
@@ -73,6 +80,8 @@ public class RegisterActivity extends AppCompatActivity {
         passwordCon = (EditText) findViewById(R.id.input_password_con);
         signupBtn = (Button) findViewById(R.id.btn_signup);
         signinBtn = (TextView) findViewById(R.id.link_login);
+        check_student = (CheckBox) findViewById(R.id.checkBox_student);
+        check_host = (CheckBox) findViewById(R.id.checkBox_host);
 
         email = emailTag.getText().toString();
         name = fullnameTag.getText().toString();
@@ -81,8 +90,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         dbHelper = new DatabaseHelper(this);
-        userType_1 = new UserType();
-        type = userType_1.getType();
 
     }
 
@@ -114,6 +121,31 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    /**
+     * check which box is checked
+     * @param v
+     * @return return user type
+     */
+    public String itemClicked(View v){
+        boolean checked = ((CheckBox)v).isChecked();
+
+        switch (v.getId()){
+            case R.id.checkBox_host:
+                if (checked){
+                    userType = typeHost;
+                    check_student.setChecked(false); // can check one box only
+                }
+                break;
+            case R.id.checkBox_student:
+                if (checked){
+                    userType = typeStudent;
+                    check_host.setChecked(false);
+                }
+                break;
+        }
+        return userType;
     }
 
 

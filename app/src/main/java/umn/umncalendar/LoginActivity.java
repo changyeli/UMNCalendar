@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * activity is created
      **/
-    public void OnCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         define();
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivityForResult(intent, REQUEST_SIGNUP);
+                startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
