@@ -1,10 +1,7 @@
 package umn.umncalendar;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,10 +25,12 @@ public class RegisterActivity extends AppCompatActivity {
     private String name;
     private String password;
     private String passwordC;
+    private String type;
+    private UserType userType_1;
 
 
-    /*
-        activity is created
+    /**
+     *  activity is created
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
                             .show();
 
                 }
-                user = new UserDatabase(email, name, password);
+                user = new UserDatabase(email, name, password, type);
                 dbHelper.createUser(user);
                 Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_LONG)
                         .show();
@@ -74,11 +73,16 @@ public class RegisterActivity extends AppCompatActivity {
         passwordCon = (EditText) findViewById(R.id.input_password_con);
         signupBtn = (Button) findViewById(R.id.btn_signup);
         signinBtn = (TextView) findViewById(R.id.link_login);
-        dbHelper = new DatabaseHelper(this);
+
         email = emailTag.getText().toString();
         name = fullnameTag.getText().toString();
         password = passwordTag.getText().toString();
         passwordC = passwordCon.getText().toString();
+
+
+        dbHelper = new DatabaseHelper(this);
+        userType_1 = new UserType();
+        type = userType_1.getType();
 
     }
 
