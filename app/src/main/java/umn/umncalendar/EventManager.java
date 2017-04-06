@@ -23,7 +23,7 @@ public class EventManager {
         res.add("Sports");
         res.add("Music");
         res.add("Art");
-        //res.add("Social");
+        res.add("Social");
         return res;
     }
 
