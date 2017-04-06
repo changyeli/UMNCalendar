@@ -13,7 +13,6 @@
         android:paddingTop="26dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
-        android:textColor="@color/white"
         >
 
         <!-- account name-->
