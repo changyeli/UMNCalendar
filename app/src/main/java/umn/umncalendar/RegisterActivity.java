@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -17,8 +17,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText emailTag;
     private EditText passwordTag;
     private EditText passwordCon;
-    private CheckBox check_student;
-    private CheckBox check_host;
+    private RadioButton radio_student;
+    private RadioButton radio_host;
 
     private Button signupBtn;
     private TextView signinBtn;
@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
                             .show();
 
                 }
-                userType = itemClicked(v);
+                itemClicked(v);
                 user = new UserDatabase(email, name, password, userType);
                 dbHelper.createUser(user);
                 Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_LONG)
@@ -80,8 +80,8 @@ public class RegisterActivity extends AppCompatActivity {
         passwordCon = (EditText) findViewById(R.id.input_password_con);
         signupBtn = (Button) findViewById(R.id.btn_signup);
         signinBtn = (TextView) findViewById(R.id.link_login);
-        check_student = (CheckBox) findViewById(R.id.checkBox_student);
-        check_host = (CheckBox) findViewById(R.id.checkBox_host);
+        radio_student = (RadioButton) findViewById(R.id.radio_student);
+        radio_host = (RadioButton) findViewById(R.id.radio_host);
 
         email = emailTag.getText().toString();
         name = fullnameTag.getText().toString();
@@ -128,24 +128,23 @@ public class RegisterActivity extends AppCompatActivity {
      * @param v
      * @return return user type
      */
-    public String itemClicked(View v){
-        boolean checked = ((CheckBox)v).isChecked();
+    public void itemClicked(View v){
+        boolean checked = ((RadioButton)v).isChecked();
 
         switch (v.getId()){
-            case R.id.checkBox_host:
+            case R.id.radio_host:
                 if (checked){
                     userType = typeHost;
-                    check_student.setChecked(false); // can check one box only
+                    radio_student.setChecked(false); // can check one box only
                 }
                 break;
-            case R.id.checkBox_student:
+            case R.id.radio_student:
                 if (checked){
                     userType = typeStudent;
-                    check_host.setChecked(false);
+                    radio_host.setChecked(false);
                 }
                 break;
         }
-        return userType;
     }
 
 
