@@ -38,7 +38,7 @@ public class MyEventTabAdapter extends ArrayAdapter<Event> {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View customView = layoutInflater.inflate(R.layout.custom_row_myevent, parent, false);
 
-        Event singleEvent =  getItem(position);
+        final Event singleEvent =  getItem(position);
         TextView name = (TextView)customView.findViewById(R.id.eventname);
         ImageView poster = (ImageView)customView.findViewById(R.id.eventposter);
         TextView category = (TextView)customView.findViewById(R.id.eventcategory);
@@ -62,20 +62,12 @@ public class MyEventTabAdapter extends ArrayAdapter<Event> {
                 FragmentActivity activity = (FragmentActivity)getContext();
                 FragmentManager fm = activity.getSupportFragmentManager();
                 RsvpCancelDialog alertDialog = new RsvpCancelDialog();
+                alertDialog.setEvent(singleEvent);
                 alertDialog.show(fm, "fragment_alert");
             }
         });
         return  customView;
     }
-
-    /*private void showDialog(){
-        final Dialog confirmDialog =  new Dialog(getContext());
-        confirmDialog.setTitle("Cancel RSVP");
-        confirmDialog.setContentView(R.layout.cancel_rsvp_dialog);
-        //confirmDialog.setCancelable(Boolean.TRUE);
-        //Button btnNo = (Button)confirmDialog.findViewById(R.id.btn_no);
-        //btnNo.setOnClickListener(confirmDialog.);
-    }*/
 
 }
 

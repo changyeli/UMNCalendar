@@ -22,8 +22,7 @@ public class Recommended_Tab extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View customView = inflater.inflate(R.layout.fragment_recommended, container, false);
         EventManager em = new EventManager();
-        List<String> interests = em.getInterests();
-        List<Event> recommendedList = em.getRecommendedEvents(interests);//((EventViewActivity)getActivity()).eventList;
+        List<Event> recommendedList = em.getRecommendedEvents();//((EventViewActivity)getActivity()).eventList;
         ListAdapter listAdapter = new RecommendedTabAdapter(this.getContext(), recommendedList);
         ListView listView = (ListView)customView.findViewById(R.id.eventList);
         listView.setAdapter(listAdapter);
