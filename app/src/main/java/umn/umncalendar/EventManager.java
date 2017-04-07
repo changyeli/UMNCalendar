@@ -13,12 +13,14 @@ import umn.umncalendar.Event.EventStatus;
 
 public class EventManager {
     static List<Event> eventList = initEvents();
-    //List<Host> hostList;
+    static List<Event> recommendedList = initEvents();
+    static List<String> interests = getInterests();
+    static List<Event> myevents = initEvents();
 
     /**
      * Temp method, move to user manager later
      * */
-    public List<String> getInterests(){
+    public static List<String> getInterests(){
         List<String> res = new ArrayList<>();
         res.add("Sports");
         res.add("Music");
@@ -29,9 +31,11 @@ public class EventManager {
 
     public static List<Event> initEvents(){
         List<Event> res = new ArrayList<Event>();
-        Calendar calendar = new GregorianCalendar(2017,3,31,8,0,0);
+        Calendar calStart = new GregorianCalendar(2017,3,31,8,0);
+        Calendar calEnd = new GregorianCalendar(2017,3,31,10,0);
         Event one = new Event(1,1,"Spring Fest");
-        one.setDate(calendar);
+        one.setStartDate(calStart);
+        one.setEndDate(calEnd);
         one.setStatus(EventStatus.FUTURE);
         one.setCategory(EventCategory.MUSIC);
         one.setAddress("Coffman Memorial Union");
@@ -41,13 +45,15 @@ public class EventManager {
         res.add(one);
 
         Event two = new Event(2,1,"Coffee Hour");
-        two.setDate(calendar);
+        two.setStartDate(calStart);
+        two.setEndDate(calEnd);
         two.setStatus(EventStatus.FUTURE);
         two.setCategory(EventCategory.SOCIAL);
         two.setAddress("Coffman Memorial Union");
         two.setStatus(EventStatus.FUTURE);
         two.getKeywords().add("Coffee");
         two.setPoster(R.mipmap.coffee_hour);
+        two.setFood(Boolean.TRUE);
         res.add(two);
         return res;
     }
@@ -98,7 +104,7 @@ public class EventManager {
         return res;
     }
 
-    public List<Event> getRecommendedEvents(List<String> interests){
+    public List<Event> getRecommendedEvents(){
         List<Event> res = new ArrayList<>();
 
         for(Event e : eventList){
@@ -112,5 +118,29 @@ public class EventManager {
         }
 
         return res;
+    }
+
+    public static void setEventList(List<Event> eventList) {
+        EventManager.eventList = eventList;
+    }
+
+    public static List<Event> getRecommendedList() {
+        return recommendedList;
+    }
+
+    public static void setRecommendedList(List<Event> recommendedList) {
+        EventManager.recommendedList = recommendedList;
+    }
+
+    public static void setInterests(List<String> interests) {
+        EventManager.interests = interests;
+    }
+
+    public static List<Event> getMyevents() {
+        return myevents;
+    }
+
+    public static void setMyevents(List<Event> myevents) {
+        EventManager.myevents = myevents;
     }
 }

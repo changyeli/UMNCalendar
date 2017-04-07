@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/eventposter"
         android:layout_width="133dp"
-        android:layout_height="87dp"
+        android:layout_height="115dp"
         android:layout_margin="@dimen/appbar_padding_top"
         app:srcCompat="@mipmap/logo_sping_fest_1" />
 
@@ -82,7 +82,27 @@
                 android:elevation="0dp"
                 android:text="Free Food"
                 android:textStyle="italic" />
+
+
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/cancelRsvp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:width="20dp"
+                android:background="@color/colorPrimary"
+                android:text="CANCEL RSVP"
+                android:textSize="10sp" />
+        </RelativeLayout>
 
     </LinearLayout>
 
