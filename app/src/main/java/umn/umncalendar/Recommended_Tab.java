@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +24,7 @@ public class Recommended_Tab extends Fragment {
         EventManager em = new EventManager();
         List<String> interests = em.getInterests();
         List<Event> recommendedList = em.getRecommendedEvents(interests);//((EventViewActivity)getActivity()).eventList;
-        ListAdapter listAdapter = new CustomAdapter(this.getContext(), recommendedList);
+        ListAdapter listAdapter = new RecommendedTabAdapter(this.getContext(), recommendedList);
         ListView listView = (ListView)customView.findViewById(R.id.eventList);
         listView.setAdapter(listAdapter);
         return customView;

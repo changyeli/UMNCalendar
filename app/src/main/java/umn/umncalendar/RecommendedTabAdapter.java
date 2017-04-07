@@ -20,9 +20,9 @@ import java.util.List;
  * Created by AartiRajan on 4/4/2017.
  */
 
-public class CustomAdapter extends ArrayAdapter<Event> {
+public class RecommendedTabAdapter extends ArrayAdapter<Event> {
    // List<Event> eventList;
-    public CustomAdapter(@NonNull Context context, List<Event> events) {
+    public RecommendedTabAdapter(@NonNull Context context, List<Event> events) {
         super(context, R.layout.custom_row, events);
         //eventList = events;
     }
@@ -34,12 +34,12 @@ public class CustomAdapter extends ArrayAdapter<Event> {
         View customView = layoutInflater.inflate(R.layout.custom_row, parent, false);
 
         Event singleEvent =  getItem(position);
-        TextView name = (TextView)customView.findViewById(R.id.name);
-        ImageView poster = (ImageView)customView.findViewById(R.id.poster);
-        TextView category = (TextView)customView.findViewById(R.id.category);
-        TextView date = (TextView)customView.findViewById(R.id.date);
-        TextView time = (TextView)customView.findViewById(R.id.time);
-        TextView location = (TextView)customView.findViewById(R.id.location);
+        TextView name = (TextView)customView.findViewById(R.id.eventname);
+        ImageView poster = (ImageView)customView.findViewById(R.id.eventposter);
+        TextView category = (TextView)customView.findViewById(R.id.eventcategory);
+        TextView date = (TextView)customView.findViewById(R.id.eventdate);
+        //TextView time = (TextView)customView.findViewById(R.id.eventtime);
+        TextView location = (TextView)customView.findViewById(R.id.eventlocation);
         LinearLayout freeFood = (LinearLayout) customView.findViewById(R.id.free_food_indicator);
         name.setText(singleEvent.getEventName());
         poster.setImageResource(singleEvent.getPoster());

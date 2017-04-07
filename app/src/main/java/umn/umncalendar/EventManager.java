@@ -29,9 +29,11 @@ public class EventManager {
 
     public static List<Event> initEvents(){
         List<Event> res = new ArrayList<Event>();
-        Calendar calendar = new GregorianCalendar(2017,3,31,8,0);
+        Calendar calStart = new GregorianCalendar(2017,3,31,8,0);
+        Calendar calEnd = new GregorianCalendar(2017,3,31,10,0);
         Event one = new Event(1,1,"Spring Fest");
-        one.setDate(calendar);
+        one.setStartDate(calStart);
+        one.setEndDate(calEnd);
         one.setStatus(EventStatus.FUTURE);
         one.setCategory(EventCategory.MUSIC);
         one.setAddress("Coffman Memorial Union");
@@ -41,7 +43,8 @@ public class EventManager {
         res.add(one);
 
         Event two = new Event(2,1,"Coffee Hour");
-        two.setDate(calendar);
+        two.setStartDate(calStart);
+        two.setEndDate(calEnd);
         two.setStatus(EventStatus.FUTURE);
         two.setCategory(EventCategory.SOCIAL);
         two.setAddress("Coffman Memorial Union");
