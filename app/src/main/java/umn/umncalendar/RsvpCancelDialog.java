@@ -22,6 +22,7 @@ public class RsvpCancelDialog extends DialogFragment implements View.OnClickList
     LayoutInflater inflater;
     View view;
     Button yes, no;
+    Event event;
 
     @Nullable
     @Override
@@ -42,5 +43,13 @@ public class RsvpCancelDialog extends DialogFragment implements View.OnClickList
         if(v.getId()==R.id.btn_no){
             dismiss();
         }
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 }
