@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/date"
-        android:textSize="@dimen/textSize"
+        android:textSize="@dimen/heading"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -31,7 +31,7 @@
         android:layout_marginTop="18dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/filterIcon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:srcCompat="@mipmap/filter"
@@ -45,8 +45,7 @@
         android:layout_height="46dp"
         android:layout_above="@+id/test"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:paddingBottom="0dp"/>
+        android:layout_alignParentTop="true" />
     <TextView
         android:id="@+id/test"
         android:layout_width="85dp"
