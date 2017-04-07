@@ -13,12 +13,14 @@ import umn.umncalendar.Event.EventStatus;
 
 public class EventManager {
     static List<Event> eventList = initEvents();
-    //List<Host> hostList;
+    static List<Event> recommendedList = initEvents();
+    static List<String> interests = getInterests();
+    static List<Event> myevents = initEvents();
 
     /**
      * Temp method, move to user manager later
      * */
-    public List<String> getInterests(){
+    public static List<String> getInterests(){
         List<String> res = new ArrayList<>();
         res.add("Sports");
         res.add("Music");
@@ -102,7 +104,7 @@ public class EventManager {
         return res;
     }
 
-    public List<Event> getRecommendedEvents(List<String> interests){
+    public List<Event> getRecommendedEvents(){
         List<Event> res = new ArrayList<>();
 
         for(Event e : eventList){
@@ -116,5 +118,29 @@ public class EventManager {
         }
 
         return res;
+    }
+
+    public static void setEventList(List<Event> eventList) {
+        EventManager.eventList = eventList;
+    }
+
+    public static List<Event> getRecommendedList() {
+        return recommendedList;
+    }
+
+    public static void setRecommendedList(List<Event> recommendedList) {
+        EventManager.recommendedList = recommendedList;
+    }
+
+    public static void setInterests(List<String> interests) {
+        EventManager.interests = interests;
+    }
+
+    public static List<Event> getMyevents() {
+        return myevents;
+    }
+
+    public static void setMyevents(List<Event> myevents) {
+        EventManager.myevents = myevents;
     }
 }
