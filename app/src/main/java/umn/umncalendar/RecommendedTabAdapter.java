@@ -21,10 +21,8 @@ import java.util.List;
  */
 
 public class RecommendedTabAdapter extends ArrayAdapter<Event> {
-   // List<Event> eventList;
     public RecommendedTabAdapter(@NonNull Context context, List<Event> events) {
         super(context, R.layout.custom_row, events);
-        //eventList = events;
     }
 
     @NonNull
@@ -38,7 +36,6 @@ public class RecommendedTabAdapter extends ArrayAdapter<Event> {
         ImageView poster = (ImageView)customView.findViewById(R.id.eventposter);
         TextView category = (TextView)customView.findViewById(R.id.eventcategory);
         TextView date = (TextView)customView.findViewById(R.id.eventdate);
-        //TextView time = (TextView)customView.findViewById(R.id.eventtime);
         TextView location = (TextView)customView.findViewById(R.id.eventlocation);
         LinearLayout freeFood = (LinearLayout) customView.findViewById(R.id.free_food_indicator);
         name.setText(singleEvent.getEventName());
@@ -53,5 +50,3 @@ public class RecommendedTabAdapter extends ArrayAdapter<Event> {
         return  customView;
     }
 }
-
-
