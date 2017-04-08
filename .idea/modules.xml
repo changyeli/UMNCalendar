@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GC.iml" filepath="$PROJECT_DIR$/GC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GC.iml" filepath="$PROJECT_DIR$/GC.iml" />
       <module fileurl="file://$PROJECT_DIR$/UMNCalendar.iml" filepath="$PROJECT_DIR$/UMNCalendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/gopherCal.iml" filepath="$PROJECT_DIR$/gopherCal.iml" />

@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <!--<group android:checkableBehavior="single">-->
+    <group
+        android:id="@+id/nav_group_top"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_tabs"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="@string/navigation_drawer_tabs"
+            android:checked="true"/>
+
+        <item
+            android:id="@+id/nav_thirdFrag"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="@string/navigation_drawer_thirdFrag" />
+
+        <item
+            android:id="@+id/notifications"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="@string/navigation_drawer_notifications" />
+
+    </group>
+
+
 </menu>
