@@ -12,7 +12,7 @@
 
     <TextView
         android:id="@+id/date_myevents"
-        android:textSize="@dimen/textSize"
+        android:textSize="@dimen/heading"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:ems="10"

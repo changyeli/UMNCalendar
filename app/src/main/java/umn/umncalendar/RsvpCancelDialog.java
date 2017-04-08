@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class RsvpCancelDialog extends DialogFragment implements View.OnClickList
     LayoutInflater inflater;
     View view;
     Button yes, no;
+    Event event;
 
     @Nullable
     @Override
@@ -37,10 +39,19 @@ public class RsvpCancelDialog extends DialogFragment implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.btn_yes){
-
+            Fragment f = getParentFragment();
+            System.out.println(f.getId());
         }
         if(v.getId()==R.id.btn_no){
             dismiss();
         }
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 }

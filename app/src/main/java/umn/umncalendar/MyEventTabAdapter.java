@@ -3,11 +3,13 @@ package umn.umncalendar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,11 +61,37 @@ public class MyEventTabAdapter extends ArrayAdapter<Event> {
         cancelRsvp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                FragmentActivity activity = (FragmentActivity)getContext();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setCancelable(true);
+                builder.setTitle("Are you sure you want to cancel this RSVP?");
+                builder.setMessage("This event will be removed from your events, and you will no longer receive updates for this event");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // How to remove the selected item?
+                    }
+
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+
+                /*FragmentActivity activity = (FragmentActivity)getContext();
                 FragmentManager fm = activity.getSupportFragmentManager();
                 RsvpCancelDialog alertDialog = new RsvpCancelDialog();
                 alertDialog.setEvent(singleEvent);
-                alertDialog.show(fm, "fragment_alert");
+                alertDialog.show(fm, "fragment_alert");*/
+
+
             }
         });
         return  customView;
