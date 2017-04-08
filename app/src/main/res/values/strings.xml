@@ -20,12 +20,12 @@
     <string name="cancel_rsvp_header">Are you sure you want to cancel your RSVP?</string>
     <string name="cancel_rsvp_body">This event will be removed from your events, and you will no longer receive updates for this event.</string>
     <string-array name="filters_list">
-        +        <item>Select filter</item>
-        +        <item>Free Food</item>
-        +        <item>Music</item>
-        +        <item>Academics</item>
-        +        <item>Movie</item>
-        +        <item>On Campus</item>
-        +    </string-array>
-    +    <string name="search_hint">Search for events..</string>
+        <item>Select Category</item>
+        <item>Free Food</item>
+        <item>Music</item>
+        <item>Academics</item>
+        <item>Movie</item>
+        <item>On Campus</item>
+    </string-array>
+    <string name="search_hint">Search for events..</string>
 </resources>
