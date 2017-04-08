@@ -41,5 +41,4 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         else
             dateText.setText(stringOfDate);
     }
-
 }

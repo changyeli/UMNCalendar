@@ -15,9 +15,13 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import java.util.Calendar;
+import java.util.List;
+
 /**
  * Created by AartiRajan on 4/4/2017.
  */
@@ -70,7 +74,8 @@ public class Calendar_tab extends Fragment implements AdapterView.OnItemSelected
             @Override
             public void onClick(View v){
                 DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(), "datePicker");
+                newFragment.show(getFragmentManager(), "datePi" +
+                        "cker");
             }
         });
         reset.setOnClickListener(new View.OnClickListener() {
@@ -80,17 +85,23 @@ public class Calendar_tab extends Fragment implements AdapterView.OnItemSelected
             }
         });
 
+        EventManager em = new EventManager();
+        List<Event> recommendedList = em.getEventList();//((EventViewActivity)getActivity()).eventList;
+        ListAdapter listAdapter = new RecommendedTabAdapter(this.getContext(), recommendedList);
+        ListView listView = (ListView)currView.findViewById(R.id.eventList);
+        listView.setAdapter(listAdapter);
+
         return currView;
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        test = (TextView)(getView().findViewById(R.id.test));
-        test.setText(parent.getItemAtPosition(pos).toString());
+        /*test = (TextView)(getView().findViewById(R.id.test));
+        test.setText(parent.getItemAtPosition(pos).toString());*/
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
-        test = (TextView)(getView().findViewById(R.id.test));
-        test.setText(parent.getItemAtPosition(0).toString());
+        /*test = (TextView)(getView().findViewById(R.id.test));
+        test.setText(parent.getItemAtPosition(0).toString());*/
     }
 
     public void setTodayDate(){

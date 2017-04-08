@@ -3,7 +3,9 @@ package umn.umncalendar;
 import android.icu.util.ULocale;
 import android.media.Image;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,8 +35,9 @@ public class Event {
     int eventId;
     int hostId;
     String eventName;
-    Image poster;
-    Date date;
+    int poster;
+    Calendar startDate;
+    Calendar endDate;
     String desc;
     EventStatus status;
     EventCategory category;
@@ -42,13 +45,24 @@ public class Event {
     String address;
     boolean food;
     boolean RSVP;
+    String imageName;
+    int imagePoster;
 
-    public Event(int eventId, int hostId, String eventName, Image poster, Date date, String desc, EventStatus status, int category, List<String> keywords, String address, boolean food, boolean RSVP) {
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public Event(int eventId, int hostId, String eventName, int poster, Calendar startdate, Calendar enddate, String desc, EventStatus status, int category, List<String> keywords, String address, boolean food, boolean RSVP) {
         this.eventId = eventId;
         this.hostId = hostId;
         this.eventName = eventName;
         this.poster = poster;
-        this.date = date;
+        this.startDate = startdate;
+        this.endDate = endDate;
         this.desc = desc;
         this.status = status;
         this.category = EventCategory.values()[category];
@@ -93,20 +107,26 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public Image getPoster() {
+    public int getPoster() {
         return poster;
     }
 
-    public void setPoster(Image poster) {
+    public void setPoster(int poster) {
         this.poster = poster;
     }
 
-    public Date getDate() {
-        return date;
+    public String getFormattedDate() {
+        String pattern = "EEE, MMM dd HH:mmaa";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+
+        String pattern2 = "-HH:mm aa";
+
+        String evDate = new SimpleDateFormat(pattern).format(startDate.getTime())+new SimpleDateFormat(pattern2).format(endDate.getTime());
+        return evDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(Calendar date) {
+        this.startDate = date;
     }
 
     public String getDesc() {
@@ -163,5 +183,29 @@ public class Event {
 
     public void setRSVP(boolean RSVP) {
         this.RSVP = RSVP;
+    }
+
+    public Calendar getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Calendar startDate) {
+        this.startDate = startDate;
+    }
+
+    public Calendar getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Calendar endDate) {
+        this.endDate = endDate;
+    }
+
+    public int getImagePoster() {
+        return imagePoster;
+    }
+
+    public void setImagePoster(int imagePoster) {
+        this.imagePoster = imagePoster;
     }
 }

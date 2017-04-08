@@ -18,6 +18,14 @@
         android:ems="10"
         android:text="Select date"
         android:textAlignment="gravity"
-        android:layout_alignBottom="@+id/datePicker_myevents"
-        android:layout_toEndOf="@+id/datePicker_myevents" />
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/datePicker_myevents"
+        android:layout_marginTop="10dp" />
+
+    <ListView
+        android:id="@+id/eventList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/datePicker_myevents" />
+
 </RelativeLayout>

@@ -36,14 +36,15 @@
         android:layout_height="40dp"
         app:srcCompat="@mipmap/filter"
         android:layout_alignBottom="@+id/date"
-        android:layout_toStartOf="@+id/filters" />
+        android:layout_toEndOf="@+id/date" />
 
     <Spinner
         android:id="@+id/filters"
         android:layout_width="160dp"
         android:layout_height="46dp"
-        android:layout_alignBottom="@+id/filterIcon"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/filterIcon"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/filterIcon" />
     <TextView
         android:id="@+id/test"
         android:layout_width="85dp"
@@ -92,4 +93,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
+<ListView
+        android:id="@+id/eventList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="15dp"
+    android:layout_below="@+id/reset_filters_btn"
+    android:layout_alignParentStart="true" />
 </RelativeLayout>

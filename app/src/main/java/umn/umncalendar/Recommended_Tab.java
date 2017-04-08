@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import java.util.List;
 
@@ -18,9 +20,12 @@ public class Recommended_Tab extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        /*EventManager eventManager = new EventManager();
-        List<String> interests = eventManager.getInterests();
-        List<Event> recommendedEvents = eventManager.getRecommendedEvents(interests);*/
-        return inflater.inflate(R.layout.fragment_recommended, container, false);
+        View customView = inflater.inflate(R.layout.fragment_recommended, container, false);
+        EventManager em = new EventManager();
+        List<Event> recommendedList = em.getRecommendedEvents();//((EventViewActivity)getActivity()).eventList;
+        ListAdapter listAdapter = new RecommendedTabAdapter(this.getContext(), recommendedList);
+        ListView listView = (ListView)customView.findViewById(R.id.eventList);
+        listView.setAdapter(listAdapter);
+        return customView;
     }
 }
