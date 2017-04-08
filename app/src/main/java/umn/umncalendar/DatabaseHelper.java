@@ -15,7 +15,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int database_version = 1;
 
     private static final String databaseName = "userDatabase";
-    private static final String userTable = "users";
     private static final String key_username = "username";
     private static final String key_password = "password";
     private static final String key_email = "email";
@@ -31,13 +30,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param db: database
      */
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE" + userTable + "(" + key_email + "TEXT PRIMARY KEY" +
+        db.execSQL("CREATE TABLE" + databaseName + "(" + key_email + "TEXT PRIMARY KEY" +
                 key_username + "TEXT," +
-                key_password + "TEXT" + key_type + "TEXT");
+                key_password + "TEXT," + key_type + "TEXT);");
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS" + userTable);
+        db.execSQL("DROP TABLE IF EXISTS" + databaseName);
         onCreate(db);
     }
 
@@ -54,7 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(key_username, user.getUsername());
         values.put(key_password, user.getPassword());
         values.put(key_type, user.getType());
-        db.insert(userTable, null, values);
+        db.insert(databaseName, null, values);
         db.close();
     }
 
@@ -65,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public void deleteUser(String email) {
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(userTable, key_email + " =? ", new String[]{email});
+        db.delete(databaseName, key_email + " =? ", new String[]{email});
         db.close();
     }
 
@@ -77,7 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public UserDatabase getUser(String email) {
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery("SELECT " + key_email + "FROM " + userTable + "WHERE" +
+        Cursor c = db.rawQuery("SELECT " + key_email + "FROM " + databaseName + "WHERE" +
                 key_email + "=?", new String[]{email});
         if (c != null) {
             c.moveToFirst();

@@ -1,8 +1,13 @@
 package umn.umncalendar;
 
-/** database that can collect user's interest of events
- * Created by Changye on 4/5/17.
- */
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class UserInterest {
+public class UserInterest extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_interest);
+    }
 }

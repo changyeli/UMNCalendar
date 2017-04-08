@@ -15,7 +15,23 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">Contacts permissions are needed for providing email
         completions.</string>
+
+    <!-- Account type -->
     <string name="check_box_student">Look For Event</string>
     <string name="check_box_host">Be A Host</string>
     <string name="button_continue">Continue</string>
+
+    <!-- Event tags -->
+    <string name="check_music">Music</string>
+    <string name="check_movie">Movie</string>
+    <string name="check_Game">Game</string>
+    <string name="check_Sport">Sport</string>
+    <string name="check_Career">Career</string>
+    <string name="check_food">Free Food</string>
+    <string name="check_recreation">Recreation</string>
+    <string name="check_late_night">Late Night</string>
+    <string name="check_talk">Talk</string>
+
+
+    <string name="action_settings">Settings</string>
 </resources>

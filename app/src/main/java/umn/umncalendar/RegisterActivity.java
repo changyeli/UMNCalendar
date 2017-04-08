@@ -105,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
     public boolean inputCorrect(String email, String password, String name, String passwordCon) {
         boolean valid = true;
 
-        if (email.endsWith("umn.edu")) {
+        if (!email.endsWith("umn.edu")) {
             emailTag.setError("This email address is invalid.");
             valid = false;
         }
