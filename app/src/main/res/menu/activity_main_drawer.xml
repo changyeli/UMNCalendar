@@ -8,24 +8,24 @@
 
         <item
             android:id="@+id/event_view"
-            android:icon="@android:drawable/ic_dialog_email"
+            android:icon="@mipmap/events_icon"
             android:title="@string/navigation_drawer_event_view"
             android:checked="true"/>
 
         <item
             android:id="@+id/profile"
-            android:icon="@android:drawable/ic_dialog_email"
+            android:icon="@mipmap/profile_icon"
             android:title="@string/navigation_drawer_profile" />
 
         <item
             android:id="@+id/friends"
-            android:icon="@android:drawable/ic_dialog_email"
+            android:icon="@mipmap/friends_icon"
             android:title="@string/navigation_drawer_friends" />
 
 
         <item
             android:id="@+id/notifications"
-            android:icon="@android:drawable/ic_dialog_email"
+            android:icon="@mipmap/notifications_icon"
             android:title="@string/navigation_drawer_notifications" />
 
     </group>
