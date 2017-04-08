@@ -75,17 +75,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
             // Handle navigation view item clicks here.
+
             int id = item.getItemId();
 
-            if (id == R.id.nav_tabs) {
+            if (id == R.id.event_view) {
                 Log.d("CLICKED: ", "TABS");
                 FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
                 xfragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
 
-            } else if (id == R.id.nav_thirdFrag) {
+            } else if (id == R.id.profile) {
                 Log.d("CLICKED: ", "THIRD FRAGMENT");
                 FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.containerView, new ThirdFragment()).commit();
+                fragmentTransaction.replace(R.id.containerView, new Profile()).commit();
             } else if (id == R.id.nav_settings) {
                 Log.d("CLICKED: ", "SETTINGS");
             }
@@ -93,8 +94,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             else if (id == R.id.notifications){
                 Log.d("CLICKED: ", "THIRD FRAGMENT");
                 FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.containerView, new ThirdFragment()).commit();
+                fragmentTransaction.replace(R.id.containerView, new Notifications()).commit();
             }
+
+            else  if (id == R.id.friends){
+                Log.d("CLICKED: ", "THIRD FRAGMENT");
+                FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.containerView, new Profile()).commit();
+
+
+            }
+
+            else  if (id == R.id.logout){
+                Log.d("CLICKED: ", "THIRD FRAGMENT");
+                FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.containerView, new Profile()).commit();
+
+            }
+
 
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

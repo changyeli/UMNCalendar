@@ -46,9 +46,9 @@ public class TabFragment extends Fragment {
         @Override
         public Fragment getItem(int position){
             switch (position){
-                case 0 : return new FirstFragment();
-                case 1 : return new SecondFragment();
-                case 2 : return new ThirdFragment();
+                case 0 : return new Recommended_Tab();
+                case 1 : return new Calendar_tab();
+                case 2 : return new MyEvents_Tab();
             }
             return null;
         }
@@ -62,9 +62,9 @@ public class TabFragment extends Fragment {
         public CharSequence getPageTitle(int position){
 
             switch (position){
-                case 0 : return "First Fragment";
-                case 1 : return "Second Fragment";
-                case 2: return "Third Fragment";
+                case 0 : return "RECOMMENDED";
+                case 1 : return "CALENDAR";
+                case 2: return "MY EVENTS";
             }
             return null;
         }
