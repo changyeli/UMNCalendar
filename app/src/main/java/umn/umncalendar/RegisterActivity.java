@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -16,8 +17,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText emailTag;
     private EditText passwordTag;
     private EditText passwordCon;
-    private RadioButton radio_student;
-    private RadioButton radio_host;
 
     private Button signupBtn;
     private TextView signinBtn;
@@ -27,7 +26,6 @@ public class RegisterActivity extends AppCompatActivity {
     private String name;
     private String password;
     private String passwordC;
-    private String userType;
 
     private static final String typeHost = "host";
     private static final String typeStudent = "student";
@@ -45,18 +43,17 @@ public class RegisterActivity extends AppCompatActivity {
         signupBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (!inputCorrect(email, password, name, passwordC)) {
-                    Toast.makeText(getApplicationContext(), "Register Failed", Toast.LENGTH_LONG)
+                    Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_LONG)
                             .show();
                     // go back to previous activity
                     Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
                     startActivity(i);
 
                 }
-                itemClicked(v);
                 dbHelper = new DatabaseHelper();
-                dbHelper.createUser(email, name, password, userType);
+                dbHelper.createUser(email, name, password, typeStudent);
 
-                Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_LONG)
+                Toast.makeText(RegisterActivity.this, "Register Successful", Toast.LENGTH_LONG)
                         .show();
                 // go to next activity
                 Intent i = new Intent(getApplicationContext(), UserInterest.class);
@@ -70,7 +67,6 @@ public class RegisterActivity extends AppCompatActivity {
                 // go back to login page
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
-                finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
@@ -87,8 +83,6 @@ public class RegisterActivity extends AppCompatActivity {
         passwordCon = (EditText) findViewById(R.id.input_password_con);
         signupBtn = (Button) findViewById(R.id.btn_signup_register);
         signinBtn = (TextView) findViewById(R.id.link_login_register);
-        radio_student = (RadioButton) findViewById(R.id.radio_student);
-        radio_host = (RadioButton) findViewById(R.id.radio_host);
 
         email = emailTag.getText().toString();
         name = fullnameTag.getText().toString();
@@ -126,30 +120,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         return valid;
-    }
-
-    /**
-     * check which box is checked
-     * @param v
-     * @return return user type
-     */
-    public void itemClicked(View v){
-        boolean checked = ((RadioButton)v).isChecked();
-
-        switch (v.getId()){
-            case R.id.radio_host:
-                if (checked){
-                    userType = typeHost;
-                    radio_student.setChecked(false); // can check one box only
-                }
-                break;
-            case R.id.radio_student:
-                if (checked){
-                    userType = typeStudent;
-                    radio_host.setChecked(false);
-                }
-                break;
-        }
     }
 
 
