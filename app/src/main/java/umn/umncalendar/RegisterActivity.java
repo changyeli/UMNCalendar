@@ -23,7 +23,6 @@ public class RegisterActivity extends AppCompatActivity {
     private Button signupBtn;
     private TextView signinBtn;
     private DatabaseHelper dbHelper;
-    private UserDatabase user;
 
     private String email;
     private String name;
@@ -52,8 +51,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                 }
                 itemClicked(v);
-                user = new UserDatabase(email, name, password, userType);
-                dbHelper.createUser(user);
+                dbHelper = new DatabaseHelper();
+                dbHelper.createUser(email, name, password, userType);
+
                 Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_LONG)
                         .show();
             }
@@ -88,8 +88,6 @@ public class RegisterActivity extends AppCompatActivity {
         password = passwordTag.getText().toString();
         passwordC = passwordCon.getText().toString();
 
-
-        dbHelper = new DatabaseHelper(this);
 
     }
 

@@ -12,14 +12,12 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-    private static final int REQUEST_SIGNUP = 0;
 
     private EditText emailTag;
     private EditText passwordTag;
     private Button signinBtn;
     private TextView signupBtn;
-    private DatabaseHelper dbHelper;
-    private UserDatabase user;
+    private DatabaseHelper dbHelper = new DatabaseHelper();
 
 
     /**
@@ -56,23 +54,23 @@ public class LoginActivity extends AppCompatActivity {
         passwordTag = (EditText) findViewById(R.id.input_password);
         signinBtn = (Button) findViewById(R.id.btn_login);
         signupBtn = (TextView) findViewById(R.id.link_signup);
-        dbHelper = new DatabaseHelper(this);
     }
 
     /**
      * log in process
      */
     public void login() {
-        String username = emailTag.getText().toString();
+        String email = emailTag.getText().toString();
         String password = passwordTag.getText().toString();
-        user = dbHelper.getUser(username);
 
-        // log in succeed
-        if (password.equals(user.getPassword())) {
-            Toast.makeText(LoginActivity.this, "Congrats: login Successful", Toast.LENGTH_LONG)
-                    .show();
+        // check if user is registered
+        if (dbHelper.matched(email)){
+            if (password.equals(dbHelper.getPassword(email))){
+                Toast.makeText(LoginActivity.this, "Congrats: login Successful", Toast.LENGTH_LONG)
+                        .show();
+            }
+
         }
-        // log in failed
         else {
             Toast.makeText(LoginActivity.this, "Username or password does not match", Toast
                     .LENGTH_LONG).show();
