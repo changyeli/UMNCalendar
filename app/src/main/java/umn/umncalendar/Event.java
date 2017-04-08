@@ -24,7 +24,7 @@ public class Event {
     }
 
     public enum EventCategory {
-        SPORTS(1), MUSIC(2), DANCE(3), ACADEMIC(4), SOCIAL(5);
+        Academic(1), Music(2), Sports(3), Movie(4), Art(5), Social(6);
         private int value;
 
         EventCategory(int value) {
@@ -44,6 +44,8 @@ public class Event {
     List<String> keywords;
     String address;
     boolean food;
+    boolean freeEntry;
+    boolean onCampus;
     boolean RSVP;
     String imageName;
     int imagePoster;
@@ -56,7 +58,7 @@ public class Event {
         this.imageName = imageName;
     }
 
-    public Event(int eventId, int hostId, String eventName, int poster, Calendar startdate, Calendar enddate, String desc, EventStatus status, int category, List<String> keywords, String address, boolean food, boolean RSVP) {
+    public Event(int eventId, int hostId, String eventName, int poster, Calendar startdate, Calendar enddate, String desc, EventStatus status, int category, List<String> keywords, String address, boolean food, boolean RSVP, boolean freeEntry) {
         this.eventId = eventId;
         this.hostId = hostId;
         this.eventName = eventName;
@@ -70,6 +72,8 @@ public class Event {
         this.address = address;
         this.food = food;
         this.RSVP = RSVP;
+        this.freeEntry = freeEntry;
+        this.onCampus =onCampus;
     }
 
     public Event(int eventId, int hostId, String eventName) {
@@ -175,6 +179,22 @@ public class Event {
 
     public void setFood(boolean food) {
         this.food = food;
+    }
+
+    public boolean isfreeEntry() {
+        return freeEntry;
+    }
+
+    public void setfreeEntry(boolean freeEntry) {
+        this.freeEntry = freeEntry;
+    }
+
+    public boolean isOnCampus() {
+        return onCampus;
+    }
+
+    public void setOnCampus(boolean onCampus) {
+        this.onCampus = onCampus;
     }
 
     public boolean isRSVP() {

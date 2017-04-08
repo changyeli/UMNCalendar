@@ -28,23 +28,22 @@ import java.util.List;
  */
 
 public class MyEvents_Tab extends Fragment {
+    View currView;
     TextView date;
     DatePickerDialog datePickerDialog;
     ImageButton datePicker;
+    String selectedDate;
+    Button searchBtn;
+    Button resetBtn;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View currView = inflater.inflate(R.layout.fragment_myevents, container, false);
+        currView = inflater.inflate(R.layout.fragment_myevents, container, false);
         date = (TextView) (currView.findViewById(R.id.date_myevents));
         datePicker = (ImageButton)(currView.findViewById(R.id.datePicker_myevents));
-        // calender class's instance and get current date , month and year from calender
-        final Calendar c = Calendar.getInstance();
-        int mYear = c.get(Calendar.YEAR); // current year
-        int mMonth = c.get(Calendar.MONTH); // current month
-        int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
-        // date picker dialog
-        date.setText(mDay + "/"
-                + (mMonth + 1) + "/" + mYear);
+        searchBtn=(Button) (currView.findViewById(R.id.search_btn));
+        resetBtn=(Button) (currView.findViewById(R.id.reset_btn));
+
         datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -59,14 +58,45 @@ public class MyEvents_Tab extends Fragment {
                 newFragment.show(getFragmentManager(), "datePicker_myevents");
             }
         });
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                applyFilters();
+            }
+        });
+        resetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                resetFilters();
+            }
+        });
 
         EventManager em = new EventManager();
-        List<Event> recommendedList = em.getEventList();
-        ListAdapter listAdapter = new MyEventTabAdapter(this.getContext(), recommendedList);
+        List<Event> myeventList = em.getMyevents();
+        ListAdapter listAdapter = new MyEventTabAdapter(this.getContext(), myeventList);
         ListView listView = (ListView)currView.findViewById(R.id.eventList);
         listView.setAdapter(listAdapter);
         return currView;
     }
 
+    public void applyFilters(){
+        selectedDate = date.getText().toString();
+
+        EventManager em = new EventManager();
+        List<Event> filteredEvents = em.getFilteredMyEvents(selectedDate);
+        ListAdapter listAdapter = new MyEventTabAdapter(this.getContext(), filteredEvents);
+        ListView listView = (ListView)currView.findViewById(R.id.eventList);
+        listView.setAdapter(listAdapter);
+    }
+
+    public void resetFilters(){
+        date.setText("Select date");
+
+        EventManager em = new EventManager();
+        List<Event> filteredEvents = em.getMyevents();
+        ListAdapter listAdapter = new MyEventTabAdapter(this.getContext(), filteredEvents);
+        ListView listView = (ListView)currView.findViewById(R.id.eventList);
+        listView.setAdapter(listAdapter);
+    }
 
 }

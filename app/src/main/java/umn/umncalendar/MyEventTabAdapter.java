@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -28,7 +30,8 @@ import java.util.List;
  */
 
 public class MyEventTabAdapter extends ArrayAdapter<Event> {
-   // List<Event> eventList;
+    // List<Event> eventList;
+    Event currEvent;
     public MyEventTabAdapter(@NonNull Context context, List<Event> events) {
         super(context, R.layout.custom_row_myevent, events);
         //eventList = events;
@@ -39,7 +42,6 @@ public class MyEventTabAdapter extends ArrayAdapter<Event> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View customView = layoutInflater.inflate(R.layout.custom_row_myevent, parent, false);
-
         final Event singleEvent =  getItem(position);
         TextView name = (TextView)customView.findViewById(R.id.eventname);
         ImageView poster = (ImageView)customView.findViewById(R.id.eventposter);
@@ -56,7 +58,13 @@ public class MyEventTabAdapter extends ArrayAdapter<Event> {
         if(!singleEvent.isFood()){
             freeFood.setVisibility(View.GONE);
         }
+        setCancelRsvpListener(customView, singleEvent);
 
+        return  customView;
+    }
+
+
+    public void setCancelRsvpListener(View customView, final Event event){
         Button cancelRsvp = (Button)customView.findViewById(R.id.cancelRsvp);
         cancelRsvp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +78,9 @@ public class MyEventTabAdapter extends ArrayAdapter<Event> {
 
                     public void onClick(DialogInterface dialog, int which) {
                         // How to remove the selected item?
+                        EventManager em = new EventManager();
+                        em.myevents.remove(event);
+                        notifyDataSetChanged();
                     }
 
                 });
@@ -94,7 +105,6 @@ public class MyEventTabAdapter extends ArrayAdapter<Event> {
 
             }
         });
-        return  customView;
     }
 
 }

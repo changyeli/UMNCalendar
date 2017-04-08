@@ -19,6 +19,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -36,7 +38,11 @@ public class Calendar_tab extends Fragment implements AdapterView.OnItemSelected
     CheckBox freeFoodchk;
     CheckBox freeEntryChk;
     CheckBox onCampusChk;
+    Button applyFilter;
     Button reset;
+    String selectedDate;
+    String selectedCategory;
+
     @Nullable
     @Override
 
@@ -48,6 +54,7 @@ public class Calendar_tab extends Fragment implements AdapterView.OnItemSelected
         freeFoodchk=(CheckBox)(currView.findViewById(R.id.free_food_chk));
         freeEntryChk=(CheckBox)(currView.findViewById(R.id.free_entry_chk));
         onCampusChk=(CheckBox)(currView.findViewById(R.id.on_campus_chk));
+        applyFilter=(Button) (currView.findViewById(R.id.apply_filters_btn));
         reset=(Button) (currView.findViewById(R.id.reset_filters_btn));
 
         dropdown.setOnItemSelectedListener(this);
@@ -62,20 +69,28 @@ public class Calendar_tab extends Fragment implements AdapterView.OnItemSelected
         // Apply the adapter to the spinner
         dropdown.setAdapter(adapter);
 
-        setTodayDate();
+        //setTodayDate();
         datePicker.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v){
                                         DialogFragment newFragment = new DatePickerFragment();
                                         newFragment.show(getFragmentManager(), "datePicker");
+                                        date = (TextView) (currView.findViewById(R.id.date));
                                     }
                                 });
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(), "datePi" +
-                        "cker");
+                newFragment.show(getFragmentManager(), "datePicker");
+                date = (TextView) (currView.findViewById(R.id.date));
+            }
+        });
+
+        applyFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                applyFilters();
             }
         });
         reset.setOnClickListener(new View.OnClickListener() {
@@ -116,11 +131,31 @@ public class Calendar_tab extends Fragment implements AdapterView.OnItemSelected
     }
 
     public void resetFilters(){
-        setTodayDate();
+        date.setText("Select date");
         dropdown.setSelection(0);
         freeFoodchk.setChecked(false);
         freeEntryChk.setChecked(false);
         onCampusChk.setChecked(false);
+
+        EventManager em = new EventManager();
+        List<Event> filteredEvents = em.getEventList();
+        ListAdapter listAdapter = new RecommendedTabAdapter(this.getContext(), filteredEvents);
+        ListView listView = (ListView)currView.findViewById(R.id.eventList);
+        listView.setAdapter(listAdapter);
+    }
+
+    public void applyFilters(){
+        selectedDate = date.getText().toString();
+        selectedCategory = dropdown.getSelectedItem().toString();
+        boolean freeFoodOption=freeFoodchk.isChecked();
+        boolean freeEntryOption=freeEntryChk.isChecked();
+        boolean onCampusOption=onCampusChk.isChecked();
+
+        EventManager em = new EventManager();
+        List<Event> filteredEvents = em.getFilteredEvents(selectedDate, selectedCategory, freeFoodOption, freeEntryOption, onCampusOption);
+        ListAdapter listAdapter = new RecommendedTabAdapter(this.getContext(), filteredEvents);
+        ListView listView = (ListView)currView.findViewById(R.id.eventList);
+        listView.setAdapter(listAdapter);
     }
 
 
