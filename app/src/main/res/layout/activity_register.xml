@@ -22,7 +22,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
-            <EditText android:id="@+id/input_name"
+            <EditText android:id="@+id/input_name_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
@@ -40,7 +40,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
-            <EditText android:id = "@+id/input_email"
+            <EditText android:id = "@+id/input_email_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@id/input_password"
+            <EditText android:id="@+id/input_password_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -101,7 +101,7 @@
 
         <!-- button for login/signup function -->
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_signup"
+            android:id="@+id/btn_signup_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -109,7 +109,7 @@
             android:padding="12sp"
             android:text="@string/button_continue"/>
 
-        <TextView android:id="@+id/link_login"
+        <TextView android:id="@+id/link_login_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"

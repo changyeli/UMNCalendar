@@ -12,7 +12,6 @@ import android.content.Intent;
 
 
 public class RegisterActivity extends AppCompatActivity {
-    private static final String TAG = "RegisterActivity";
     private EditText fullnameTag;
     private EditText emailTag;
     private EditText passwordTag;
@@ -48,6 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!inputCorrect(email, password, name, passwordC)) {
                     Toast.makeText(getApplicationContext(), "Register Failed", Toast.LENGTH_LONG)
                             .show();
+                    // go back to previous activity
+                    Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+                    startActivity(i);
 
                 }
                 itemClicked(v);
@@ -56,11 +58,16 @@ public class RegisterActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Register Successful", Toast.LENGTH_LONG)
                         .show();
+                // go to next activity
+                Intent i = new Intent(getApplicationContext(), UserInterest.class);
+                i.putExtra("email", email);// pass the email for future use
+                startActivity(i);
             }
         });// signupBtn
 
         signinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // go back to login page
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
@@ -74,12 +81,12 @@ public class RegisterActivity extends AppCompatActivity {
      * define all clickable resources in the register page
      */
     public void define() {
-        fullnameTag = (EditText) findViewById(R.id.input_name);
-        emailTag = (EditText) findViewById(R.id.input_email);
-        passwordTag = (EditText) findViewById(R.id.input_password);
+        fullnameTag = (EditText) findViewById(R.id.input_name_register);
+        emailTag = (EditText) findViewById(R.id.input_email_register);
+        passwordTag = (EditText) findViewById(R.id.input_password_register);
         passwordCon = (EditText) findViewById(R.id.input_password_con);
-        signupBtn = (Button) findViewById(R.id.btn_signup);
-        signinBtn = (TextView) findViewById(R.id.link_login);
+        signupBtn = (Button) findViewById(R.id.btn_signup_register);
+        signinBtn = (TextView) findViewById(R.id.link_login_register);
         radio_student = (RadioButton) findViewById(R.id.radio_student);
         radio_host = (RadioButton) findViewById(R.id.radio_host);
 

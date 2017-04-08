@@ -32,6 +32,10 @@
     <string name="check_late_night">Late Night</string>
     <string name="check_talk">Talk</string>
 
+    <!-- popup window message -->
+    <string name="popup_welcome">Welcome! \n Please select your event interest.</string>
+    <string name="pop_button_welcome">Got it</string>
+
 
     <string name="action_settings">Settings</string>
 </resources>

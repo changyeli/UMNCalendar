@@ -30,7 +30,13 @@ public class LoginActivity extends AppCompatActivity {
 
         signinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                login();
+                if (login()) {
+                    // TODO: add home activity after finished
+                    //Intent i = new Intent(getApplicationContext(), )
+                }
+                // go back to previous page
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
             }
         });
 
@@ -59,24 +65,28 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * log in process
      */
-    public void login() {
+    public boolean login() {
+        boolean loginChecked = true;
         String email = emailTag.getText().toString();
         String password = passwordTag.getText().toString();
 
         // check if user is registered
-        if (dbHelper.matched(email)){
-            if (password.equals(dbHelper.getPassword(email))){
+        if (dbHelper.matched(email)) {
+            // check if user has correct password
+            if (password.equals(dbHelper.getPassword(email))) {
                 Toast.makeText(LoginActivity.this, "Congrats: login Successful", Toast.LENGTH_LONG)
                         .show();
             }
 
         }
+        // login failed
         else {
             Toast.makeText(LoginActivity.this, "Username or password does not match", Toast
                     .LENGTH_LONG).show();
+            loginChecked = false;
         }
 
-
+        return loginChecked;
     }
 
 

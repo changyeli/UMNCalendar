@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 
 /** rewrite, and without SQL.
- * try with hashmap
  * User event interest
  * Created by Changye on 4/5/17.
  */
@@ -28,6 +27,14 @@ public class InterestHelper {
 
     public ArrayList<String> getInterests(String email){
         return userInterest.get(email);
+    }
+
+    /**
+     * add user selected interest into database
+     * @param interest: the selected user event interest
+     */
+    public void addInterest(String interest){
+        interests.add(interest);
     }
 
 
