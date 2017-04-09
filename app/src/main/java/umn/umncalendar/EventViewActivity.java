@@ -73,21 +73,21 @@ public class EventViewActivity extends AppCompatActivity {
     }
 
     ArrayAdapter<String> adapter;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_view);
-        ListView lv = (ListView) findViewById(R.id.);
-        ArrayList<String> arrayActivity = new ArrayList<>();
-        arrayActivity.addAll(Arrays.asList(getResources().getStringArray(R.array.array_activity)));
-
-        adapter = new ArrayAdapter<>(
-                EventViewActivity.this,
-                android.R.layout.simple_list_item_1,
-                arrayActivity);
-
-        lv.setAdapter(adapter);
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_event_view);
+//        ListView lv = (ListView) findViewById(R.id.);
+//        ArrayList<String> arrayActivity = new ArrayList<>();
+//        arrayActivity.addAll(Arrays.asList(getResources().getStringArray(R.array.array_activity)));
+//
+//        adapter = new ArrayAdapter<>(
+//                EventViewActivity.this,
+//                android.R.layout.simple_list_item_1,
+//                arrayActivity);
+//
+//        lv.setAdapter(adapter);
+//    }
 
 //    TO-DO : will be disgarded when search button is working
 //    @Override
