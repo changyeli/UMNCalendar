@@ -64,8 +64,7 @@ public class DatabaseHelper {
      * search by email
      * @return: a list contains all registered email
      */
-    public ArrayList<String> getAllEmails(){
-        ArrayList<String> allEmails = new ArrayList<>();
+    public ArrayList<String> getAllEmails(ArrayList<String> allEmails){
         for (Map.Entry<String, String> entry: userInfo.entrySet()){
             allEmails.add(entry.getKey());
         }
@@ -76,8 +75,7 @@ public class DatabaseHelper {
      * search by name
      * @return: a list contains all users' name
      */
-    public ArrayList<String> getAllNames(){
-        ArrayList<String> allNames = new ArrayList<>();
+    public ArrayList<String> getAllNames(ArrayList<String> allNames){
         for (Map.Entry<String, String> entry: userInfo.entrySet()){
             allNames.add(entry.getValue());
         }

@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class RegisterActivity extends AppCompatActivity {
     private EditText fullnameTag_register;
     private EditText emailTag_register;
@@ -84,7 +86,6 @@ public class RegisterActivity extends AppCompatActivity {
         signupBtn_register = (Button) findViewById(R.id.btn_signup_register);
         signinBtn_register = (TextView) findViewById(R.id.link_login_register);
 
-
     }
 
     /**
@@ -99,39 +100,48 @@ public class RegisterActivity extends AppCompatActivity {
     public boolean inputCorrect(String email, String password, String name, String passwordCon) {
         boolean valid = true;
         String[] outputs = email.split("@");
+        ArrayList<String> allUsers = new ArrayList<>();
+        dbHelper.getAllEmails(allUsers);
 
-        //TODO: check if user is already registered
-        if (!outputs[1].equals("umn.edu") ) {
+        if (allUsers.contains(email)) {
+            emailTag_register.setError("");
+            Toast.makeText(RegisterActivity.this, "This email is alreardy registered", Toast
+                    .LENGTH_LONG).show();
+        }
+
+        if (!outputs[1].equals("umn.edu")) {
             emailTag_register.setError("");
             Toast.makeText(RegisterActivity.this, "This email is invalid", Toast.LENGTH_LONG)
                     .show();
             valid = false;
         }
         if (email.equals("") || password.equals("") ||
-                passwordCon.equals("") || name.equals("")){
-            if (email.equals("")){
+                passwordCon.equals("") || name.equals("")) {
+            if (email.equals("")) {
                 emailTag_register.setError("");
             }
 
-            if (password.equals("")){
+            if (password.equals("")) {
                 passwordTag_register.setError("");
             }
 
-            if (passwordCon.equals("")){
+            if (passwordCon.equals("")) {
                 passwordConTag_register.setError("");
             }
 
-            if (name.equals("")){
+            if (name.equals("")) {
                 fullnameTag_register.setError("");
             }
 
-            Toast.makeText(RegisterActivity.this, "Empty Required field/s", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this, "Empty Required field/s", Toast.LENGTH_LONG)
+                    .show();
             valid = false;
         }
-        if (!password.equals(passwordCon)){
+        if (!password.equals(passwordCon)) {
             passwordTag_register.setError("");
             passwordConTag_register.setError("");
-            Toast.makeText(RegisterActivity.this, "Passwords are not matched", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterActivity.this, "Passwords are not matched", Toast.LENGTH_LONG)
+                    .show();
             valid = false;
         }
 
