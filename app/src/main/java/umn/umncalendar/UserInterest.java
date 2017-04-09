@@ -18,7 +18,6 @@ public class UserInterest extends AppCompatActivity {
     private static final String late_night = "late night";
     private static final String talk = "talk";
     private InterestHelper itHelper = new InterestHelper();
-    private String userEmail;
 
     // clickable variables
     private CheckBox checkbox_music;
@@ -39,7 +38,8 @@ public class UserInterest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_interest);
         Bundle extra = getIntent().getExtras();
-        getInfo(extra);
+        String userEmail = getInfo(extra);
+
         define();
         ArrayList<String> interest = new ArrayList<>();
         onClick(interest);
@@ -52,10 +52,8 @@ public class UserInterest extends AppCompatActivity {
     /**
      * get user email from previous page
      */
-    public void getInfo(Bundle extra){
-        if (extra != null){
-            userEmail = extra.getString("email");
-        }
+    public String getInfo(Bundle extra){
+        return extra.getString("email");
     }
 
     /**
