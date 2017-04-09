@@ -60,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(i);
                     overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                 }
-
             }
         });// signupBtn
 
@@ -100,14 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
     public boolean inputCorrect(String email, String password, String name, String passwordCon) {
         boolean valid = true;
         String[] outputs = email.split("@");
-        ArrayList<String> allUsers = new ArrayList<>();
-        dbHelper.getAllEmails(allUsers);
 
-        if (allUsers.contains(email)) {
-            emailTag_register.setError("");
-            Toast.makeText(RegisterActivity.this, "This email is alreardy registered", Toast
-                    .LENGTH_LONG).show();
-        }
 
         if (!outputs[1].equals("umn.edu")) {
             emailTag_register.setError("");
