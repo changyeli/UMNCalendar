@@ -42,6 +42,11 @@ public class EventViewActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    /**
+     *  The array adapter for saving searched results
+     */
+    private ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,35 +73,7 @@ public class EventViewActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-
     }
-
-    ArrayAdapter<String> adapter;
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_event_view);
-//        ListView lv = (ListView) findViewById(R.id.);
-//        ArrayList<String> arrayActivity = new ArrayList<>();
-//        arrayActivity.addAll(Arrays.asList(getResources().getStringArray(R.array.array_activity)));
-//
-//        adapter = new ArrayAdapter<>(
-//                EventViewActivity.this,
-//                android.R.layout.simple_list_item_1,
-//                arrayActivity);
-//
-//        lv.setAdapter(adapter);
-//    }
-
-//    TO-DO : will be disgarded when search button is working
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_event_view, menu);
-//        return true;
-//    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
