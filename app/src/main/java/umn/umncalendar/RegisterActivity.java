@@ -19,10 +19,6 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView signinBtn_register;
     private DatabaseHelper dbHelper;
 
-    private String email_register;
-    private String name_register;
-    private String password_register;
-    private String passwordC_register;
 
     private static final String typeStudent = "student";
 
@@ -36,12 +32,14 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         define();
 
+
         signupBtn_register.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                email_register = emailTag_register.getText().toString();
-                name_register = fullnameTag_register.getText().toString();
-                password_register = passwordTag_register.getText().toString();
-                passwordC_register = passwordConTag_register.getText().toString();
+                String email_register = emailTag_register.getText().toString();
+                String name_register = fullnameTag_register.getText().toString();
+                String password_register = passwordTag_register.getText().toString();
+                String passwordC_register = passwordConTag_register.getText().toString();
+
                 if (!inputCorrect(email_register, password_register, name_register, passwordC_register)){
                     Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_LONG)
                             .show();
