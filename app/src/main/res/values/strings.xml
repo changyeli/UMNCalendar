@@ -13,9 +13,6 @@
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is invalid</string>
     <string name="error_field_required">This field is required</string>
-<<<<<<< HEAD
-    <string name="permission_rationale">Contacts permissions are needed for providing email
-        completions.</string>
 
     <!-- Account type -->
     <string name="check_box_student">Look For Event</string>
@@ -36,10 +33,6 @@
     <!-- popup window message -->
     <string name="popup_welcome">Welcome! \n Please select your event interest.</string>
     <string name="pop_button_welcome">Got it</string>
-
-
-    <string name="action_settings">Settings</string>
-=======
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>

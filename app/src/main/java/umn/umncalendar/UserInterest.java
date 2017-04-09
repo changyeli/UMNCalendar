@@ -1,5 +1,6 @@
 package umn.umncalendar;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -45,8 +46,13 @@ public class UserInterest extends AppCompatActivity {
         onClick(interest);
         itHelper.addEntry(userEmail, interest);
 
-        // TODO: add home page
-        //continue_interest.setOnClickListener(new View.OnClickListener(){});
+        continue_interest.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+            }
+        });
     }
 
     /**
