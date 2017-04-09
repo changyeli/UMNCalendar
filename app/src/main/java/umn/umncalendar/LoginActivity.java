@@ -28,6 +28,19 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         define();
 
+        // create dummy database for this app
+        dbHelper.createUser("lixx3013@umn.edu", "123456", "Changye Li", "student");
+        dbHelper.createUser("fanxx332@umn.edu", "654321", "Chris Fan", "student");
+        dbHelper.createUser("smit7082@umn.edu", "309802", "James Smith", "student");
+        dbHelper.createUser("webber3321@umn.edu", "500032", "Marian Webber", "student");
+        dbHelper.createUser("normanr@umn.edu", "379706", "Rachelle Norman", "student");
+        dbHelper.createUser("silv2991@umn.edu", "309280", "Seth Silverman", "student");
+        dbHelper.createUser("neyx0019@umn.edu", "796981", "Thomas Ney", "student");
+        dbHelper.createUser("zhong240@umn.edu", "20170401", "Jia Zhong", "student");
+        dbHelper.createUser("sunda134@umn.edu","5324659","Aarti Rajan","student");
+        dbHelper.createUser("jagra001@umn.edu","5444099","Anushree Jagrawal","student");
+        dbHelper.createUser("nguy2152@umn.edu","986098","Dianna Nguyen","student");
+
         signinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (login()) {
