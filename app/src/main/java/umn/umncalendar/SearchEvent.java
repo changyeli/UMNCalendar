@@ -33,7 +33,7 @@ public class SearchEvent extends AppCompatActivity {
 
 
         ArrayList<String> arrayActivity = new ArrayList<>();
-        arrayActivity.addAll(Arrays.asList(getResources().getStringArray(R.array.array_activity)));
+        arrayActivity.addAll(Arrays.asList(getResources().getStringArray(R.array.array_events)));
 
         ArrayAdapter<String> adapter;
 
