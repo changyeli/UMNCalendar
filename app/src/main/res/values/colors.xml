@@ -2,7 +2,15 @@
 <resources>
     <color name="colorPrimary">#800000</color>
     <color name="colorPrimaryDark">#000000</color>
+<<<<<<< HEAD
     <color name="colorAccent">#FFFFFF</color>
     <color name="windowBackground">#800000</color>
     <color name="white">#FFFFFF</color>
+=======
+    <color name="colorAccent">#ffc054</color>
+    <color name="black">#000000</color>
+    <color name="lightgrey">#808080</color>
+    <color name="grey">#A9A9A9</color>
+    <color name="white">#FFF</color>
+>>>>>>> 21ddcef2839161c1f4118d71910845c7983c78c4
 </resources>
