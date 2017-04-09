@@ -3,7 +3,9 @@ package umn.umncalendar;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,9 +14,16 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class EventViewActivity extends AppCompatActivity {
 
@@ -60,15 +69,57 @@ public class EventViewActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+    ArrayAdapter<String> adapter;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_event_view);
+        ListView lv = (ListView) findViewById(R.id.);
+        ArrayList<String> arrayActivity = new ArrayList<>();
+        arrayActivity.addAll(Arrays.asList(getResources().getStringArray(R.array.array_activity)));
+
+        adapter = new ArrayAdapter<>(
+                EventViewActivity.this,
+                android.R.layout.simple_list_item_1,
+                arrayActivity);
+
+        lv.setAdapter(adapter);
+    }
+
+//    TO-DO : will be disgarded when search button is working
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_event_view, menu);
+//        return true;
+//    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_event_view, menu);
-        return true;
-    }
+        MenuItem item = menu.findItem(R.id.menuSearch);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
 
 
     @Override
