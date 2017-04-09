@@ -14,6 +14,7 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         >
+        <!-- TODO: add logo here -->
 
         <!-- account name-->
         <android.support.design.widget.TextInputLayout

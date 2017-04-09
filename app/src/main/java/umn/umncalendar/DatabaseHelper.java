@@ -60,5 +60,28 @@ public class DatabaseHelper {
     }
 
 
+    /**
+     * search by email
+     * @return: a list contains all registered email
+     */
+    public ArrayList<String> getAllEmails(){
+        ArrayList<String> allEmails = new ArrayList<>();
+        for (Map.Entry<String, String> entry: userInfo.entrySet()){
+            allEmails.add(entry.getKey());
+        }
+        return allEmails;
+    }
+
+    /**
+     * search by name
+     * @return: a list contains all users' name
+     */
+    public ArrayList<String> getAllNames(){
+        ArrayList<String> allNames = new ArrayList<>();
+        for (Map.Entry<String, String> entry: userInfo.entrySet()){
+            allNames.add(entry.getValue());
+        }
+        return allNames;
+    }
 
 }// class end
