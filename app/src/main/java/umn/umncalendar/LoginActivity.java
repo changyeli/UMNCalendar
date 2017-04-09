@@ -40,16 +40,22 @@ public class LoginActivity extends AppCompatActivity {
         dbHelper.createUser("sunda134@umn.edu","5324659","Aarti Rajan","student");
         dbHelper.createUser("jagra001@umn.edu","5444099","Anushree Jagrawal","student");
         dbHelper.createUser("nguy2152@umn.edu","986098","Dianna Nguyen","student");
+        dbHelper.createUser("gilm7783@umn.edu", "987897","David Gilmnan", "student");
 
         signinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (login()) {
-                    // TODO: add home activity after finished
-                    //Intent i = new Intent(getApplicationContext(), )
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(i);
+                    finish();
                 }
-                // go back to previous page
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i);
+                else{
+                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+
+
             }
         });
 
@@ -58,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
+                finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
@@ -95,6 +102,8 @@ public class LoginActivity extends AppCompatActivity {
         else {
             Toast.makeText(LoginActivity.this, "Username or password does not match", Toast
                     .LENGTH_LONG).show();
+            passwordTag.setError("");
+            emailTag.setError("");
             loginChecked = false;
         }
 

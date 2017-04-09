@@ -57,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                     i.putExtra("email", email_register);// pass the email for future use
                     i.putExtra("name", name_register);// pass the name for future use
                     startActivity(i);
+                    finish();
                     overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                 }
             }
@@ -67,6 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                 // go back to login page
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
+                finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
