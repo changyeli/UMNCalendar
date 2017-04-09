@@ -40,13 +40,14 @@ public class RegisterActivity extends AppCompatActivity {
                 String password_register = passwordTag_register.getText().toString();
                 String passwordC_register = passwordConTag_register.getText().toString();
 
-                if (!inputCorrect(email_register, password_register, name_register, passwordC_register)){
+                if (!inputCorrect(email_register, password_register, name_register,
+                        passwordC_register)) {
                     Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_LONG)
                             .show();
-                }
-                else{
+                } else {
                     dbHelper = new DatabaseHelper();
-                    dbHelper.createUser(email_register, name_register, password_register, typeStudent);
+                    dbHelper.createUser(email_register, name_register, password_register,
+                            typeStudent);
 
                     Toast.makeText(RegisterActivity.this, "Register Successful", Toast.LENGTH_LONG)
                             .show();
@@ -55,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                     i.putExtra("email", email_register);// pass the email for future use
                     i.putExtra("name", name_register);// pass the name for future use
                     startActivity(i);
+                    overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                 }
 
             }
@@ -98,27 +100,44 @@ public class RegisterActivity extends AppCompatActivity {
         boolean valid = true;
         String[] outputs = email.split("@");
 
-        //TODO: email validation and make sure it ends with "umn.edu"
-        if (!outputs[1].equals("umn.edu")){
-            emailTag_register.setError("This email is invalid");
+        //TODO: check if user is already registered
+        if (!outputs[1].equals("umn.edu") ) {
+            emailTag_register.setError("");
+            Toast.makeText(RegisterActivity.this, "This email is invalid", Toast.LENGTH_LONG)
+                    .show();
+            valid = false;
         }
+        if (email.equals("") || password.equals("") ||
+                passwordCon.equals("") || name.equals("")){
+            if (email.equals("")){
+                emailTag_register.setError("");
+            }
 
-        if (email.equals("") || password.equals("") || passwordCon.equals("") || name.equals("")) {
-            emailTag_register.setError("This field is required");
-            passwordTag_register.setError("This field is required");
-            passwordConTag_register.setError("This field is required");
-            fullnameTag_register.setError("This field is required");
+            if (password.equals("")){
+                passwordTag_register.setError("");
+            }
+
+            if (passwordCon.equals("")){
+                passwordConTag_register.setError("");
+            }
+
+            if (name.equals("")){
+                fullnameTag_register.setError("");
+            }
+
+            Toast.makeText(RegisterActivity.this, "Empty Required field/s", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
+        if (!password.equals(passwordCon)){
+            passwordTag_register.setError("");
+            passwordConTag_register.setError("");
+            Toast.makeText(RegisterActivity.this, "Passwords are not matched", Toast.LENGTH_LONG).show();
             valid = false;
         }
 
-        if (!password.equals(passwordCon)) {
-            passwordConTag_register.setError("The password does not match");
-            valid = false;
-        }
+
         return valid;
     }
-
-
 
 
 }// class end
