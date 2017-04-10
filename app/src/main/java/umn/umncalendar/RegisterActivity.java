@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         define();
 
 
+        // TODO: all empty blocks will crash the app
         signupBtn_register.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String email_register = emailTag_register.getText().toString();
