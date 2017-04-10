@@ -41,6 +41,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".EventViewActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
         <activity
             android:name=".MainActivity"
@@ -54,13 +59,6 @@
                 android:name="android.app.default_searchable"
                 android:value=".SearchableActivity" />-->
         </activity>
-
-        <activity
-            android:name=".EventViewActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
 
     </application>
 

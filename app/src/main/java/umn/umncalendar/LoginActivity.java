@@ -18,7 +18,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button signinBtn;
     private TextView signupBtn;
     private DatabaseHelper dbHelper = new DatabaseHelper();
-    private InterestHelper itHelper = new InterestHelper();
 
 
     /**
@@ -42,9 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         dbHelper.createUser("jagra001@umn.edu","5444099","Anushree Jagrawal","student");
         dbHelper.createUser("nguy2152@umn.edu","986098","Dianna Nguyen","student");
         dbHelper.createUser("gilm7783@umn.edu", "987897","David Gilmnan", "student");
-
-        // create dummy interest list database for this app
-
 
         signinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

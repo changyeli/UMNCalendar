@@ -6,14 +6,18 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.*;
 
 public class UserInterest extends AppCompatActivity {
+    // tags
+    private static final String music = "music";
+    private static final String movie = "movie";
+    private static final String game = "game";
+    private static final String sport = "sport";
+    private static final String career = "career";
+    private static final String recreation = "recreation";
+    private static final String late_night = "late night";
+    private static final String talk = "talk";
     private InterestHelper itHelper = new InterestHelper();
 
     // clickable variables
@@ -26,9 +30,7 @@ public class UserInterest extends AppCompatActivity {
     private CheckBox checkbox_late_night;
     private CheckBox checkbox_talk;
     private Button continue_interest;
-    private TextView text_welcome;
-    private TextView text_user_name;
-    private TextView text_welcome_message;
+
 
 
 
@@ -36,24 +38,16 @@ public class UserInterest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_interest);
-        final String userEmail = getIntent().getStringExtra("email");
-        final String userName = getIntent().getStringExtra("name");
-        define();
-        text_user_name.setText(userName);
+        Bundle extra = getIntent().getExtras();
+        String userEmail = getInfo(extra);
 
+        define();
+        ArrayList<String> interest = new ArrayList<>();
+        onClick(interest);
+        itHelper.addEntry(userEmail, interest);
 
         continue_interest.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                ArrayList<String> interest = new ArrayList<>();
-                clickStored(interest);
-                itHelper.addEntry(userEmail, interest);
-                //test if interests are added
-                String it = "";
-                for (String s:interest){
-                    it += s + ", ";
-                }
-                Toast.makeText(getApplicationContext(),"you have selected following interests:" + it, Toast.LENGTH_LONG).show();
-                System.out.println(interest);
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -61,6 +55,12 @@ public class UserInterest extends AppCompatActivity {
         });
     }
 
+    /**
+     * get user email from previous page
+     */
+    public String getInfo(Bundle extra){
+        return extra.getString("email");
+    }
 
     /**
      * define all clickable variables
@@ -75,10 +75,6 @@ public class UserInterest extends AppCompatActivity {
         checkbox_late_night = (CheckBox)findViewById(R.id.checkbox_late_night);
         checkbox_talk = (CheckBox)findViewById(R.id.checkbox_talk);
         continue_interest = (Button)findViewById(R.id.continue_interest);
-        text_welcome = (TextView)findViewById(R.id.text_welcome);
-        text_welcome_message = (TextView)findViewById(R.id.text_welcome_message);
-        text_user_name = (TextView)findViewById(R.id.text_user_name);
-
 
     }
 
@@ -86,30 +82,30 @@ public class UserInterest extends AppCompatActivity {
      * add interest to user's info
      * @param addedInterest: a list that contains user's selection
      */
-    public void clickStored(ArrayList<String> addedInterest){
+    public void onClick(ArrayList<String> addedInterest){
         if (checkbox_music.isChecked()){
-            addedInterest.add(checkbox_music.getHint().toString());
+            addedInterest.add(music);
         }
         if (checkbox_talk.isChecked()){
-            addedInterest.add(checkbox_talk.getHint().toString());
+            addedInterest.add(talk);
         }
         if (checkbox_movie.isChecked()){
-            addedInterest.add(checkbox_movie.getHint().toString());
+            addedInterest.add(movie);
         }
         if (checkbox_late_night.isChecked()){
-            addedInterest.add(checkbox_late_night.getHint().toString());
+            addedInterest.add(late_night);
         }
         if (checkbox_recreation.isChecked()){
-            addedInterest.add(checkbox_recreation.getHint().toString());
+            addedInterest.add(recreation);
         }
         if (checkbox_career.isChecked()){
-           addedInterest.add(checkbox_career.getHint().toString());
+            addedInterest.add(career);
         }
         if (checkbox_game.isChecked()){
-           addedInterest.add(checkbox_game.getHint().toString());
+            addedInterest.add(game);
         }
         if (checkbox_sport.isChecked()){
-            addedInterest.add(checkbox_sport.getHint().toString());
+            addedInterest.add(sport);
         }
     }
 }
