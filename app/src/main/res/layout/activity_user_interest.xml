@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="umn.umncalendar.UserInterest">
+
+
+    <CheckBox
+        android:id="@+id/checkbox_music"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_music"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_movie"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_movie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_movie"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_game"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_game"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_Game"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_sport"
+        app:layout_constraintRight_toRightOf="@+id/checkbox_movie"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/checkbox_movie"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_sport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_Sport"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_career"
+        app:layout_constraintRight_toRightOf="@+id/checkbox_game"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintLeft_toLeftOf="@+id/checkbox_game"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_career"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_Career"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_food"
+        app:layout_constraintRight_toRightOf="@+id/checkbox_sport"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/checkbox_sport"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_food"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_food"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_recreation"
+        app:layout_constraintRight_toRightOf="@+id/checkbox_career"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/checkbox_career"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_recreation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_recreation"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_late_night"
+        app:layout_constraintRight_toRightOf="@+id/checkbox_food"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintLeft_toLeftOf="@+id/checkbox_food"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_late_night"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_late_night"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_talk"
+        app:layout_constraintRight_toRightOf="@+id/checkbox_recreation"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/checkbox_recreation"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_talk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/check_talk"
+        android:textSize="25sp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/checkbox_late_night"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="186dp"
+        app:layout_constraintLeft_toLeftOf="@+id/checkbox_late_night"
+        app:layout_constraintHorizontal_bias="0.0"/>
+
+    <Button
+        android:id="@+id/continue_interest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/button_continue"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_talk"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
