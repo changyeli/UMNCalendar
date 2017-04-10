@@ -13,23 +13,24 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Logout extends Fragment {
+public class Logout extends Fragment{
+    private Button logout_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Button logout_btn = (Button) inflater.inflate(R.layout.fragment_logout, container, false)
-                .findViewById(R.id.button);
-        logout_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        View v = inflater.inflate(R.layout.fragment_logout, container, false);
+        logout_btn = (Button) v.findViewById(R.id.button);
+        logout_btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
                 Intent i = new Intent(Logout.this.getActivity(), LoginActivity.class);
                 Logout.this.getActivity().startActivity(i);
             }
         });
-        return inflater.inflate(R.layout.fragment_logout, container, false);
+        return v;
     }
+
 
 
 }
