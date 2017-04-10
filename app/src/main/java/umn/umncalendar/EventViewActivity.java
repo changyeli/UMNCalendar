@@ -79,21 +79,26 @@ public class EventViewActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_event_view, menu);
         MenuItem item = menu.findItem(R.id.menuSearch);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-
-                return false;
-            }
-        });
+        /**
+         * This portion enables typing in search bar,
+         * but since I implement a new search activity,
+         * I used onClickListener.
+         */
+//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                adapter.getFilter().filter(newText);
+//
+//                return false;
+//            }
+//        });
 
         return super.onCreateOptionsMenu(menu);
     }
