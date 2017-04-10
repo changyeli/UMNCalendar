@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (login()) {
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    // TODO: pass user email to main activity
                     startActivity(i);
                     finish();
                 }
