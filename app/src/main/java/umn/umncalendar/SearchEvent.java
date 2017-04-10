@@ -17,11 +17,13 @@ import java.util.Arrays;
 
 public class SearchEvent extends AppCompatActivity {
 
+    ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_event);
-        ListView lv = (ListView) findViewById(R.id.listActivity);
+        ListView lv = (ListView) findViewById(R.id.listEvent);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -34,8 +36,6 @@ public class SearchEvent extends AppCompatActivity {
 
         ArrayList<String> arrayActivity = new ArrayList<>();
         arrayActivity.addAll(Arrays.asList(getResources().getStringArray(R.array.array_events)));
-
-        ArrayAdapter<String> adapter;
 
         adapter = new ArrayAdapter<>(
                 SearchEvent.this,
@@ -50,22 +50,22 @@ public class SearchEvent extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_event_view, menu);
         MenuItem item = menu.findItem(R.id.menuSearch);
-//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                adapter.getFilter().filter(newText);
-//
-//                return false;
-//            }
-//        });
-//
-        return super.onCreateOptionsMenu(menu);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+
+                return false;
+            }
+        });
+
+        return true;
     }
 }
