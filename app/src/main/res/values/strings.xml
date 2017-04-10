@@ -51,13 +51,6 @@
 
     </string-array>
     <string name="search_hint">Search for events..</string>
-
-    <string-array name="array_events">
-        <item>Carrer Fair</item>
-        <item>SWE Weekly Meeting</item>
-        <item>BBQ Night</item>
-    </string-array>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -75,5 +68,4 @@
     <string name="navigation_drawer_notifications">Notifications</string>
     <string name="navigation_drawer_logout">Logout</string>
 >>>>>>> 21ddcef2839161c1f4118d71910845c7983c78c4
->>>>>>> b9b184086bc2120fd0bd52cc63c582a64fe5ed58
 </resources>
