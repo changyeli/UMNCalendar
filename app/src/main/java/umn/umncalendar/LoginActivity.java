@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.*;
+
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -18,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button signinBtn;
     private TextView signupBtn;
     private DatabaseHelper dbHelper = new DatabaseHelper();
+    private InterestHelper itHelper = new InterestHelper();
 
 
     /**
@@ -29,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         define();
 
         // create dummy database for this app
+        // create dummy user database for this app
         dbHelper.createUser("lixx3013@umn.edu", "123456", "Changye Li", "student");
         dbHelper.createUser("fanxx332@umn.edu", "654321", "Chris Fan", "student");
         dbHelper.createUser("smit7082@umn.edu", "309802", "James Smith", "student");
@@ -42,11 +46,89 @@ public class LoginActivity extends AppCompatActivity {
         dbHelper.createUser("nguy2152@umn.edu","986098","Dianna Nguyen","student");
         dbHelper.createUser("gilm7783@umn.edu", "987897","David Gilmnan", "student");
 
+        // create dummy user event interest database for this app
+        // Changye
+        ArrayList<String> interest_changye = new ArrayList<>();
+        interest_changye.add("Music");
+        interest_changye.add("Movie");
+        interest_changye.add("Game");
+        interest_changye.add("Free Food");
+        itHelper.addEntry("lixx3013@umn.edu", interest_changye);
+        // Chris
+        ArrayList<String> interest_chris = new ArrayList<>();
+        interest_chris.add("Game");
+        interest_chris.add("Sport");
+        interest_chris.add("Recreation");
+        interest_chris.add("Social");
+        itHelper.addEntry("fanxx332@umn.edu", interest_chris);
+        // James
+        ArrayList<String> interest_james = new ArrayList<>();
+        interest_james.add("Talk");
+        interest_james.add("Academics");
+        interest_james.add("Free Food");
+        interest_james.add("Sport");
+        itHelper.addEntry("smit7082@umn.edu", interest_james);
+        // Seth
+        ArrayList<String> interest_seth = new ArrayList<>();
+        interest_seth.add("Music");
+        interest_seth.add("Sport");
+        interest_seth.add("Free Food");
+        interest_seth.add("Game");
+        itHelper.addEntry("silv2991@umn.edu", interest_seth);
+        // Thomas
+        ArrayList<String> interest_thomas = new ArrayList<>();
+        interest_thomas.add("Academics");
+        interest_thomas.add("Game");
+        interest_thomas.add("Social");
+        interest_thomas.add("Recreation");
+        itHelper.addEntry("neyx0019@umn.edu", interest_thomas);
+        // Jia
+        ArrayList<String> interest_jia = new ArrayList<>();
+        interest_jia.add("Talk");
+        interest_jia.add("Music");
+        interest_jia.add("Free Food");
+        interest_jia.add("Recreation");
+        itHelper.addEntry("zhong240@umn.edu", interest_jia);
+        // Aarti
+        ArrayList<String> interest_aarti = new ArrayList<>();
+        interest_aarti.add("Music");
+        interest_aarti.add("Movie");
+        interest_aarti.add("Talk");
+        interest_aarti.add("Academics");
+        itHelper.addEntry("sunda134@umn.edu", interest_aarti);
+        // Anushree
+        ArrayList<String> interest_anushree = new ArrayList<>();
+        interest_anushree.add("Academics");
+        interest_anushree.add("Sport");
+        interest_anushree.add("Talk");
+        interest_anushree.add("Movie");
+        itHelper.addEntry("jagra001@umn.edu", interest_anushree);
+        // Dianna
+        ArrayList<String> interest_dianna = new ArrayList<>();
+        interest_dianna.add("Movie");
+        interest_dianna.add("Music");
+        interest_dianna.add("Talk");
+        interest_dianna.add("Free Food");
+        itHelper.addEntry("nguy2152@umn.edu", interest_dianna);
+        // David
+        ArrayList<String> interest_david = new ArrayList<>();
+        interest_david.add("Socia");
+        interest_david.add("Sport");
+        interest_david.add("Photography");
+        interest_david.add("Free Food");
+        itHelper.addEntry("gilm7783@umn.edu", interest_david);
+
+
+
+
+
         signinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (login()) {
+                    // TODO: receive user email in main activity
+                    String email = emailTag.getText().toString();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    // TODO: pass user email to main activity
+                    i.putExtra("email", email);
                     startActivity(i);
                     finish();
                 }
@@ -83,7 +165,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * log in process
+     * log in validation process
+     * @return: return true if all inputs are correct, otherwise return false;
      */
     public boolean login() {
         boolean loginChecked = true;
@@ -110,6 +193,7 @@ public class LoginActivity extends AppCompatActivity {
 
         return loginChecked;
     }
+
 
 
 }

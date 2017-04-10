@@ -8,182 +8,116 @@
     android:gravity="center"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context="umn.umncalendar.UserInterest">
+    tools:context="umn.umncalendar.UserInterest"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
 
     <CheckBox
         android:id="@+id/checkbox_music"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="397dp"
+        android:layout_height="31dp"
         android:hint="@string/check_music"
         android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_movie"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        tools:layout_editor_absoluteY="214dp"
+        tools:layout_editor_absoluteX="7dp"/>
 
     <CheckBox
         android:id="@+id/checkbox_movie"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="397dp"
+        android:layout_height="32dp"
         android:hint="@string/check_movie"
         android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_game"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <CheckBox
-        android:id="@+id/checkbox_game"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/check_Game"
-        android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_sport"
-        app:layout_constraintRight_toRightOf="@+id/checkbox_movie"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/checkbox_movie"/>
-
-    <CheckBox
-        android:id="@+id/checkbox_sport"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/check_Sport"
-        android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_career"
-        app:layout_constraintRight_toRightOf="@+id/checkbox_game"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintLeft_toLeftOf="@+id/checkbox_game"/>
-
-    <CheckBox
-        android:id="@+id/checkbox_career"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/check_Career"
-        android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_food"
-        app:layout_constraintRight_toRightOf="@+id/checkbox_sport"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/checkbox_sport"/>
+        tools:layout_editor_absoluteY="258dp"
+        tools:layout_editor_absoluteX="7dp"/>
 
     <CheckBox
         android:id="@+id/checkbox_food"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/check_food"
+        android:layout_width="396dp"
+        android:layout_height="31dp"
+        android:hint="Free Food"
         android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_recreation"
-        app:layout_constraintRight_toRightOf="@+id/checkbox_career"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/checkbox_career"/>
+        tools:layout_editor_absoluteY="305dp"
+        tools:layout_editor_absoluteX="7dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_sport"
+        android:layout_width="397dp"
+        android:layout_height="31dp"
+        android:hint="@string/check_Sport"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteY="353dp"
+        tools:layout_editor_absoluteX="7dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_career"
+        android:layout_width="397dp"
+        android:layout_height="34dp"
+        android:hint="Academics"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteY="398dp"
+        tools:layout_editor_absoluteX="7dp"/>
+    <CheckBox
+        android:id="@+id/checkbox_culture"
+        android:layout_width="396dp"
+        android:layout_height="0dp"
+        android:hint="Social"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteY="169dp"
+        tools:layout_editor_absoluteX="7dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_photo"
+        android:layout_width="396dp"
+        android:layout_height="0dp"
+        android:hint="Photography"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteY="125dp"
+        tools:layout_editor_absoluteX="7dp"/>
 
     <CheckBox
         android:id="@+id/checkbox_recreation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="396dp"
+        android:layout_height="32dp"
         android:hint="@string/check_recreation"
         android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_late_night"
-        app:layout_constraintRight_toRightOf="@+id/checkbox_food"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintLeft_toLeftOf="@+id/checkbox_food"/>
-
-    <CheckBox
-        android:id="@+id/checkbox_late_night"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/check_late_night"
-        android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_talk"
-        app:layout_constraintRight_toRightOf="@+id/checkbox_recreation"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/checkbox_recreation"/>
-
-    <CheckBox
-        android:id="@+id/checkbox_talk"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/check_talk"
-        android:textSize="25sp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/checkbox_late_night"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="139dp"
-        app:layout_constraintLeft_toLeftOf="@+id/checkbox_late_night"
-        app:layout_constraintHorizontal_bias="0.0"/>
+        tools:layout_editor_absoluteY="448dp"
+        tools:layout_editor_absoluteX="7dp"/>
 
     <Button
         android:id="@+id/continue_interest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/button_continue"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_talk"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="18dp"
-        app:layout_constraintHorizontal_bias="0.498"/>
+        tools:layout_editor_absoluteY="509dp"
+        tools:layout_editor_absoluteX="161dp"/>
 
     <TextView
         android:id="@+id/text_welcome_message"
         android:layout_width="363dp"
         android:layout_height="27dp"
         android:text="Please Select Your Event Interest Here"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkbox_music"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        />
+        tools:layout_editor_absoluteY="79dp"
+        tools:layout_editor_absoluteX="24dp"/>
 
     <TextView
         android:id="@+id/text_welcome"
-        android:layout_width="88dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="24dp"
+        android:layout_width="67dp"
+        android:layout_height="26dp"
         android:text="Welcome"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="92dp"/>
+        tools:layout_editor_absoluteY="46dp"
+        tools:layout_editor_absoluteX="24dp"/>
 
     <TextView
         android:id="@+id/text_user_name"
-        android:layout_width="93dp"
-        android:layout_height="27dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="91dp"
+        android:layout_height="26dp"
         android:text="TextView"
-        app:layout_constraintLeft_toRightOf="@+id/text_welcome"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="92dp"/>
+        tools:layout_editor_absoluteY="46dp"
+        tools:layout_editor_absoluteX="91dp"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -29,13 +29,6 @@ public class InterestHelper {
         return userInterest.get(email);
     }
 
-    /**
-     * add user selected interest into database
-     * @param interest: the selected user event interest
-     */
-    public void addInterest(String interest){
-        interests.add(interest);
-    }
 
 
 }

@@ -25,6 +25,8 @@ public class UserInterest extends AppCompatActivity {
     private CheckBox checkbox_recreation;
     private CheckBox checkbox_late_night;
     private CheckBox checkbox_talk;
+    private CheckBox checkbox_culture;
+    private CheckBox checkbox_photo;
     private Button continue_interest;
     private TextView text_welcome;
     private TextView text_user_name;
@@ -68,6 +70,8 @@ public class UserInterest extends AppCompatActivity {
         checkbox_recreation = (CheckBox)findViewById(R.id.checkbox_recreation);
         checkbox_late_night = (CheckBox)findViewById(R.id.checkbox_late_night);
         checkbox_talk = (CheckBox)findViewById(R.id.checkbox_talk);
+        checkbox_culture = (CheckBox)findViewById(R.id.checkbox_culture);
+        checkbox_photo = (CheckBox)findViewById(R.id.checkbox_photo);
         continue_interest = (Button)findViewById(R.id.continue_interest);
         text_welcome = (TextView)findViewById(R.id.text_welcome);
         text_welcome_message = (TextView)findViewById(R.id.text_welcome_message);
@@ -104,6 +108,12 @@ public class UserInterest extends AppCompatActivity {
         }
         if (checkbox_sport.isChecked()){
             addedInterest.add(checkbox_sport.getHint().toString());
+        }
+        if (checkbox_culture.isChecked()){
+            addedInterest.add(checkbox_culture.getHint().toString());
+        }
+        if (checkbox_photo.isChecked()){
+            addedInterest.add(checkbox_photo.getHint().toString());
         }
     }
 }
