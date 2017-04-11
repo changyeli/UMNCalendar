@@ -83,4 +83,8 @@ public class DatabaseHelper {
         return allNames;
     }
 
+    public String getFullName(String email){
+        return userInfo.get(email);
+    }
+
 }// class end
