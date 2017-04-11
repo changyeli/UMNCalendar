@@ -31,7 +31,7 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View customView = layoutInflater.inflate(R.layout.custom_row_friends, parent, false);
+        View customView = layoutInflater.inflate(R.layout.custom_row_add_friend, parent, false);
 
         User user = getItem(position);
         TextView name = (TextView) customView.findViewById(R.id.friend_name);
@@ -45,19 +45,19 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
 
     public void setRemoveFriendListener(View customView, final User friend) {
         ImageButton cancelRsvp = (ImageButton) customView.findViewById(R.id.addThisFriend);
-        // cancelRsvp.setText("Add");
         cancelRsvp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setCancelable(true);
                 //builder.setTitle("Are you sure you remove this person?");
-                builder.setMessage("Are you sure you want to add " + friend.getUser_name() + " to your friend list?");
+                builder.setMessage("Are you sure you add " + friend.getUser_name() + " to your friend list?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         // How to remove the selected item?
                         //User.getFriends().add(friend);
+                        //User.getFriends().remove(friend);
                         //notifyDataSetChanged();
                         builder.setMessage("Friend request has been sent to " + friend.getUser_name());
                     }
