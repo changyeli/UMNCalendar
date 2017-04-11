@@ -74,7 +74,8 @@ public class SearchEvent extends AppCompatActivity {
         // This two lines don't effect the performance at this moment.
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
+        searchView.setIconified(false);
+        searchView.setIconifiedByDefault(false);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
