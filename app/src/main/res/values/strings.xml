@@ -69,4 +69,10 @@
     <string name="navigation_drawer_event_view">Event View</string>
     <string name="navigation_drawer_notifications">Notifications</string>
     <string name="navigation_drawer_logout">Logout</string>
+
+    <string-array name="array_events">
+        <item>Spring Fest</item>
+        <item>Coffee Hour</item>
+        <item>Movie Night</item>
+    </string-array>>
 </resources>

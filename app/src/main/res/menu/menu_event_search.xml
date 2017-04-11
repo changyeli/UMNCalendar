@@ -1,11 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="umn.umncalendar.EventViewActivity">
+    tools:context="umn.umncalendar.SearchEvent">
 
     <item
         android:id="@+id/menuSearch"
         android:icon="@android:drawable/ic_menu_search"
         android:title="Search"
-        app:showAsAction="ifRoom|collapseActionView"></item>
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always"></item>
 </menu>
