@@ -74,5 +74,9 @@
         <item>Spring Fest</item>
         <item>Coffee Hour</item>
         <item>Movie Night</item>
-    </string-array>>
+    </string-array>
+
+    <string name="search">Search</string>
+    <string name="search_friends">Search Friends</string>
+    <string name="find_friends">Find Friends</string>
 </resources>

@@ -8,7 +8,31 @@ import java.util.*;
 public class User {
     private String user_email;
     private String user_name;
+    private int user_pic;
     private ArrayList<String> user_friends = new ArrayList<>();
+    private static ArrayList<User> allUsers = initUserList();
+
+    private static ArrayList<User> initUserList() {
+        ArrayList<User> result = new ArrayList<>();
+        result.add(new User("Marian",R.mipmap.marian));
+        result.add(new User("Thomas",R.mipmap.thomas));
+        return result;
+    }
+
+    private static List<User> friends = initFriends();
+
+    private static List<User> initFriends() {
+        List<User> result = new ArrayList<>();
+        result.add(new User("Seth",R.mipmap.seth));
+        result.add(new User("James",R.mipmap.james));
+        return result;
+
+    }
+
+    public User(String user_name, int user_pic) {
+        this.user_name = user_name;
+        this.user_pic = user_pic;
+    }
 
     /**
      * constructor
@@ -22,6 +46,13 @@ public class User {
         this.user_friends = friends;
     }
 
+    public User(String email, String name, ArrayList<String> friends, int pic) {
+        this.user_email = email;
+        this.user_name = name;
+        this.user_friends = friends;
+        this.user_pic = pic;
+    }
+    public int getUser_pic() { return user_pic; }
     /**
      * get user email;
      * @return: user email
@@ -69,5 +100,15 @@ public class User {
 
     }
 
+    public static List<User> getFriends() {
+        return friends;
+    }
 
+    public static List<User> getAllUsers() {
+        return allUsers;
+    }
+
+    public static void setFriends(List<User> friends) {
+        User.friends = friends;
+    }
 }

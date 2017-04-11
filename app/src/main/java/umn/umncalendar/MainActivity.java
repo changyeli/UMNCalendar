@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else  if (id == R.id.friends){
             Log.d("CLICKED: ", "THIRD FRAGMENT");
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.containerView, new Profile()).commit();
+            fragmentTransaction.replace(R.id.containerView, new FriendsFragment()).commit();
 
 
         }
