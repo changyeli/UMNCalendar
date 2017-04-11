@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/eventpage_tolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="200dp"
+        android:layout_height="146dp"
+        app:srcCompat="@mipmap/coffee_hour"
+        android:layout_weight="0.05"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/eventpage_tolbar"
+        android:layout_alignBottom="@+id/tick3"
+        android:layout_alignEnd="@+id/desc_title" />
+
+    <TextView
+        android:id="@+id/eventName"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Coffee Hour"
+        android:textAlignment="gravity"
+        android:textColor="@color/black"
+        android:textSize="@dimen/heading"
+        android:textStyle="bold"
+        android:layout_below="@+id/eventpage_tolbar"
+        android:layout_toEndOf="@+id/poster" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:text="Event Category"
+        android:textSize="@dimen/subheading"
+
+        android:layout_below="@+id/eventName"
+        android:layout_alignStart="@+id/eventName" />
+
+    <ImageView
+        android:id="@+id/dateIcon"
+        android:layout_width="29dp"
+        android:layout_height="31dp"
+        app:srcCompat="@mipmap/date_picker_image"
+        android:layout_below="@+id/poster"
+        android:layout_alignStart="@+id/addressIcon" />
+
+    <TextView
+        android:id="@+id/event_date"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout="@+id/dateIcon"
+        android:ems="10"
+        android:text="Event Date+Time"
+        android:textAlignment="gravity"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize"
+        android:layout_above="@+id/addressIcon"
+        android:layout_below="@+id/poster"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/dateIcon" />
+
+    <ImageView
+        android:id="@+id/addressIcon"
+        android:layout_width="29dp"
+        android:layout_height="31dp"
+        app:srcCompat="@mipmap/gps"
+        android:layout_below="@+id/dateIcon"
+        android:layout_alignStart="@+id/desc_title" />
+
+    <TextView
+        android:id="@+id/event_address"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout="@+id/dateIcon"
+        android:ems="10"
+        android:text="Event address"
+        android:textAlignment="gravity"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize"
+        android:layout_below="@+id/dateIcon"
+        android:layout_alignBottom="@+id/addressIcon"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/dateIcon" />
+
+    <TextView
+        android:id="@+id/desc_title"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout="@+id/dateIcon"
+        android:text="About this event:"
+        android:textAlignment="gravity"
+        android:textColor="@color/black"
+        android:textSize="@dimen/subheading"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_below="@+id/addressIcon"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout="@+id/dateIcon"
+        android:ems="10"
+        android:text="Event description"
+        android:textAlignment="gravity"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/desc_title"
+        android:layout_alignStart="@+id/desc_title"
+        android:layout_alignParentEnd="true" />
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@mipmap/check_mark"
+        android:layout_below="@+id/category"
+        android:layout_toEndOf="@+id/poster" />
+
+    <TextView
+        android:id="@+id/free_food"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:text="Free Food"
+        android:textSize="@dimen/textsize"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:gravity="center_vertical"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/imageView5" />
+    <ImageView
+        android:id="@+id/tick2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@mipmap/check_mark"
+        android:layout_below="@+id/free_food"
+        android:layout_toEndOf="@+id/poster" />
+
+    <TextView
+        android:id="@+id/free_entry"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:text="Free Entry"
+        android:textSize="@dimen/textsize"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/free_food"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/imageView5" />
+    <ImageView
+        android:id="@+id/tick3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@mipmap/check_mark"
+        android:layout_below="@+id/tick2"
+        android:layout_toEndOf="@+id/poster" />
+
+    <TextView
+        android:id="@+id/onCampus"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:text="On Campus"
+        android:textSize="@dimen/textsize"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/tick2"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tick2" />
+    <ImageView
+        android:id="@+id/inviteFriendsIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/invitefriends"
+        android:layout_weight="0.05"
+        android:layout_above="@+id/snackbarPosition"
+        android:layout_toStartOf="@+id/rsvpBtn" />
+
+    <ImageView
+        android:id="@+id/RSVPIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/add_event"
+        android:layout_weight="0.05"
+        android:layout_alignTop="@+id/RSVPCancelIcon"
+        android:layout_alignStart="@+id/RSVPCancelIcon" />
+    <ImageView
+        android:id="@+id/RSVPCancelIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@mipmap/cancel_event"
+        android:layout_weight="0.05"
+        android:layout_above="@+id/inviteFriendsIcon"
+        android:layout_alignStart="@+id/inviteFriendsIcon" />
+    <ImageView
+        android:id="@+id/mymap"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:srcCompat="@mipmap/map_akerman"
+        android:layout_alignStart="@+id/desc"
+        android:layout_above="@+id/snackbarPosition"
+        android:layout_below="@+id/eventlocation" />
+
+    <TextView
+        android:id="@+id/eventlocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Location:"
+
+        android:textColor="@color/black"
+        android:layout_above="@+id/RSVPIcon"
+        android:layout_alignStart="@+id/desc_title" />
+    <Button
+        android:id="@+id/rsvpBtn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:width="20dp"
+        android:background="@color/colorPrimary"
+        android:text="RSVP"
+        android:textSize="10sp"
+        android:layout_alignTop="@+id/RSVPIcon"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tick3" />
+    <Button
+        android:id="@+id/addFriendsBtn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:width="20dp"
+        android:background="@color/colorPrimary"
+        android:text="Add Friends"
+        android:textSize="10sp"
+        android:layout_below="@+id/RSVPIcon"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/inviteFriendsIcon"
+        android:layout_alignStart="@+id/rsvpBtn" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/snackbarPosition"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/mapframeLayout"
+        tools:context=".EventPageActivity"
+        android:layout_below="@+id/desc"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mymap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="54dp"
+            android:visibility="visible" />
+    </FrameLayout>-->
+</RelativeLayout>

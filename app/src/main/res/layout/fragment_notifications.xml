@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/colorPrimary"
+        android:layout_above="@+id/nList"
+        android:layout_alignParentStart="true" />
+    <ListView
+        android:id="@+id/nList"
+        android:layout_width="365dp"
+        android:layout_height="413dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView6" />
+    <ImageView
+        android:id="@+id/noNotifications"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:srcCompat="@mipmap/nonotifications"
+        android:textSize="25dp"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
+
+
