@@ -51,7 +51,7 @@ public class FriendListAdapter extends ArrayAdapter<User> {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setCancelable(true);
                 //builder.setTitle("Are you sure you remove this person?");
-                builder.setMessage("Are you sure you remove " + friend.getUser_name() + " from your friend list?");
+                builder.setMessage("Are you sure you want to remove " + friend.getUser_name() + " from your friend list?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
