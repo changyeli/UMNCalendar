@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -58,6 +59,7 @@ public class FriendListAdapter extends ArrayAdapter<User> {
                         // How to remove the selected item?
                         User.getFriends().remove(friend);
                         notifyDataSetChanged();
+                        Toast.makeText(getContext(), friend.getUser_name() + " has been successfully removed from your friend list!", Toast.LENGTH_SHORT).show();
                     }
 
                 });
