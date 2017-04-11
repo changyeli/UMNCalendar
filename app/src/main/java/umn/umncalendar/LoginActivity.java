@@ -174,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
         if (dbHelper.matched(email)) {
             // check if user has correct password
             if (password.equals(dbHelper.getPassword(email))) {
-                Toast.makeText(LoginActivity.this, "Congrats: login Successful", Toast.LENGTH_LONG)
+                Toast.makeText(LoginActivity.this, "Congrats: Login Successful", Toast.LENGTH_LONG)
                         .show();
             }
             else{
