@@ -12,17 +12,17 @@
         android:id="@+id/fab"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="6dp"
         android:clickable="true"
         android:scaleX="1"
         android:scaleY="1"
-        app:backgroundTint="#ffffff"
-        app:srcCompat="@mipmap/add_btn"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/friend_list"
-        android:layout_marginEnd="6dp"
         app:layout_constraintRight_toRightOf="@+id/friend_list"
-        android:layout_marginBottom="8dp" />
+        app:srcCompat="@mipmap/ic_add_white"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <ListView
         android:id="@+id/friend_list"

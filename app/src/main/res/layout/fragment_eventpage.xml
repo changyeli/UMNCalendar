@@ -127,7 +127,7 @@
         android:id="@+id/imageView5"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/check_mark"
+        app:srcCompat="@mipmap/tick"
         android:layout_below="@+id/category"
         android:layout_toEndOf="@+id/poster" />
 
@@ -148,7 +148,7 @@
         android:id="@+id/tick2"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/check_mark"
+        app:srcCompat="@mipmap/tick"
         android:layout_below="@+id/free_food"
         android:layout_toEndOf="@+id/poster" />
 
@@ -169,7 +169,7 @@
         android:id="@+id/tick3"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/check_mark"
+        app:srcCompat="@mipmap/tick"
         android:layout_below="@+id/tick2"
         android:layout_toEndOf="@+id/poster" />
 
