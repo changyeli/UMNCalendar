@@ -119,9 +119,6 @@ public class LoginActivity extends AppCompatActivity {
         itHelper.addEntry("gilm7783@umn.edu", interest_david);
 
 
-
-
-
         signinBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (login()) {
