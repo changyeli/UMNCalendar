@@ -37,6 +37,10 @@ public class TabFragment extends Fragment {
         return view;
     }
 
+    public ViewPager getViewPager(){
+        return viewPager;
+    }
+
     class MyAdapter extends FragmentPagerAdapter {
 
         public MyAdapter(FragmentManager fm){
@@ -68,6 +72,5 @@ public class TabFragment extends Fragment {
             }
             return null;
         }
-
     }
 }

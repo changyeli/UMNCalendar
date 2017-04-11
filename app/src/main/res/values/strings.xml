@@ -21,10 +21,12 @@
     <string name="cancel_rsvp_body">This event will be removed from your events, and you will no longer receive updates for this event.</string>
     <string-array name="filters_list">
         <item>Select Category</item>
+        <item>Academics</item>
         <item>Sports</item>
         <item>Music</item>
+        <item>Movie</item>
         <item>Art</item>
-        <item>Academics</item>
+        <item>Recreation</item>
         <item>Social</item>
 
     </string-array>

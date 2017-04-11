@@ -96,6 +96,7 @@
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
+                android:focusable="false"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:width="20dp"

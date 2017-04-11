@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -24,7 +25,7 @@ public class RecommendedTabAdapter extends ArrayAdapter<Event> {
    // List<Event> eventList;
     public RecommendedTabAdapter(@NonNull Context context, List<Event> events) {
         super(context, R.layout.custom_row, events);
-        //eventList = events;
+
     }
 
     @NonNull

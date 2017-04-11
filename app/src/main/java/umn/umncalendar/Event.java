@@ -49,6 +49,9 @@ public class Event {
     boolean RSVP;
     String imageName;
     int imagePoster;
+    String foodDesc;
+    String entryDesc;
+    int map;
 
     public String getImageName() {
         return imageName;
@@ -227,5 +230,38 @@ public class Event {
 
     public void setImagePoster(int imagePoster) {
         this.imagePoster = imagePoster;
+    }
+
+
+    public int getMap() {
+        return map;
+    }
+
+    public void setMap(int map) {
+        this.map = map;
+    }
+
+    public boolean isFreeEntry() {
+        return freeEntry;
+    }
+
+    public void setFreeEntry(boolean freeEntry) {
+        this.freeEntry = freeEntry;
+    }
+
+    public String getFoodDesc() {
+        return foodDesc;
+    }
+
+    public void setFoodDesc(String foodDesc) {
+        this.foodDesc = foodDesc;
+    }
+
+    public String getEntryDesc() {
+        return entryDesc;
+    }
+
+    public void setEntryDesc(String entryDesc) {
+        this.entryDesc = entryDesc;
     }
 }

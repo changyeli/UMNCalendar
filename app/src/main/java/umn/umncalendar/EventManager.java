@@ -16,7 +16,7 @@ public class EventManager {
     static List<Event> eventList = initEvents();
     static List<Event> recommendedList = initEvents();
     static List<String> interests = getInterests();
-    static List<Event> myevents = initEvents();
+    static List<Event> myevents = initMyEvents();
 
     /**
      * Temp method, move to user manager later
@@ -45,6 +45,8 @@ public class EventManager {
         one.setFood(false);
         one.setOnCampus(false);
         one.setfreeEntry(true);
+        one.setMap(R.mipmap.map_rail_apts);
+        one.setDesc("Springfest is an annual music festival put on by Program Board. The event is complete with a Beer Garden, food trucks, and activities supplied by Macalester student organizations");
         res.add(one);
 
         Event two = new Event(2,1,"Coffee Hour");
@@ -60,6 +62,8 @@ public class EventManager {
         two.setFood(Boolean.TRUE);
         two.setOnCampus(true);
         two.setfreeEntry(false);
+        two.setMap(R.mipmap.map_akerman);
+        two.setDesc("Coffee Hour! A whole hour of Coffee! (or tea, or maybe even hot cocoa!) Come on down to coffee hour and have a bagel or donut to go with a favorite warm beverage. Talk with fellow grad students about life and/or school and/or whatever!");
         res.add(two);
 
         Event three = new Event(3,1,"Movie Night");
@@ -75,9 +79,16 @@ public class EventManager {
         three.setFood(Boolean.TRUE);
         three.setOnCampus(true);
         three.setfreeEntry(true);
+        three.setMap(R.mipmap.map_coffman);
+        three.setDesc("Join us to watch a movie under the stars, sponsored and organized by the PTA. Bring warm clothes, a blanket and low chairs to sit on during the film.");
         res.add(three);
 
         return res;
+    }
+
+    public static List<Event> initMyEvents(){
+        List<Event> myEventList= new ArrayList<Event>();
+        return myEventList;
     }
 
     public List<Event> getEventList(){
@@ -194,4 +205,18 @@ public class EventManager {
     public static void setMyevents(List<Event> myevents) {
         EventManager.myevents = myevents;
     }
+
+    public static void addToMyevents(Event event) {
+        if (!myevents.contains(event))
+        myevents.add(event);
+    }
+
+    public static void removeFromMyevents(Event event) {
+        myevents.remove(event);
+    }
+
+    public static boolean checkIfEventInMyEvents(Event event) {
+        return myevents.contains(event);
+    }
+
 }
