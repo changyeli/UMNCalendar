@@ -44,7 +44,7 @@ public class FriendListAdapter extends ArrayAdapter<User> {
     }
 
     public void setRemoveFriendListener(View customView, final User friend) {
-        Button cancelRsvp = (Button) customView.findViewById(R.id.removeFriend);
+        Button cancelRsvp = (Button) customView.findViewById(R.id.unfriend);
         cancelRsvp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
