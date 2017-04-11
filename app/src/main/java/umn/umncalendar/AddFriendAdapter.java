@@ -48,7 +48,7 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
         cancelRsvp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setCancelable(true);
                 //builder.setTitle("Are you sure you remove this person?");
                 builder.setMessage("Are you sure you want to add " + friend.getUser_name() + " to your friend list?");
@@ -56,8 +56,9 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
 
                     public void onClick(DialogInterface dialog, int which) {
                         // How to remove the selected item?
-                        User.getFriends().add(friend);
-                        notifyDataSetChanged();
+                        //User.getFriends().add(friend);
+                        //notifyDataSetChanged();
+                        builder.setMessage("Friend request has been sent to " + friend.getUser_name());
                     }
 
                 });
