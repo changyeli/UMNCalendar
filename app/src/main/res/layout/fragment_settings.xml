@@ -4,10 +4,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="umn.umncalendar.Settings"
-    tools:layout_editor_absoluteY="0dp"
+    tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="Privacy Settings"
+        android:textSize="18sp"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/privacy_toggle"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/hello_blank_fragment"
+        android:id="@+id/textView10"
+        app:layout_constraintRight_toLeftOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Switch
+        android:id="@+id/event_updates"
+        android:layout_width="275dp"
+        android:layout_height="30dp"
+        android:checked="true"
+        android:text="Event Updates"
+        android:textOff="OFF"
+        android:textOn="ON"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/weather_updates"
+        android:layout_marginTop="83dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/weather_updates"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="1dp"
+        android:checked="true"
+        android:text="Weather Alerts              "
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintRight_toRightOf="@+id/privacy_toggle"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/friend_updates"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/event_updates" />
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -21,18 +83,106 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/switch1"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        app:srcCompat="@mipmap/message_icon"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="27dp"
+        app:layout_constraintRight_toLeftOf="@+id/textView6"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="106dp"
-        android:text="Notifications"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Contact us: teamdoge@umn.edu"
+        android:layout_marginStart="76dp"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Switch
+        android:id="@+id/friend_updates"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:checked="true"
+        android:text="Friend Updates                "
         tools:layout_constraintTop_creator="1"
-        app:layout_constraintHorizontal_bias="0.298" />
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/weather_updates"
+        android:layout_marginTop="127dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/weather_updates"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notification Settings"
+        android:textSize="18sp"
+        android:layout_marginStart="25dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/event_updates"
+        android:layout_marginTop="40dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="51dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="700dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center"
+        android:background="#a40404"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        android:layout_marginTop="223dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="224dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/privacy_toggle"
+        android:layout_width="276dp"
+        android:checked="true"
+        android:layout_height="27dp"
+        android:text="Public Profile                "
+        android:textOn="Light ON"
+        android:textOff="Light OFF"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        android:layout_marginTop="151dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="151dp"
+        app:layout_constraintLeft_toLeftOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/friend_updates" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have questions or concerns?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/textView6" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -1,350 +1,203 @@
 package umn.umncalendar;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.TextUtils;
-import android.view.KeyEvent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import static android.Manifest.permission.READ_CONTACTS;
 
-/**
- * A login screen that offers login via email/password.
- */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = "LoginActivity";
+
+    private EditText emailTag;
+    private EditText passwordTag;
+    private Button signinBtn;
+    private TextView signupBtn;
+    private DatabaseHelper dbHelper = new DatabaseHelper();
+    private InterestHelper itHelper = new InterestHelper();
+
 
     /**
-     * Id to identity READ_CONTACTS permission request.
-     */
-    private static final int REQUEST_READ_CONTACTS = 0;
-
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
-    private UserLoginTask mAuthTask = null;
-
-    // UI references.
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
-
-    @Override
+     * activity is created
+     **/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        populateAutoComplete();
+        define();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
+        // create dummy database for this app
+        // create dummy user database for this app
+        dbHelper.createUser("lixx3013@umn.edu", "123456", "Changye Li", "student");
+        dbHelper.createUser("fanxx332@umn.edu", "654321", "Chris Fan", "student");
+        dbHelper.createUser("smit7082@umn.edu", "309802", "James Smith", "student");
+        dbHelper.createUser("webber3321@umn.edu", "500032", "Marian Webber", "student");
+        dbHelper.createUser("normanr@umn.edu", "379706", "Rachelle Norman", "student");
+        dbHelper.createUser("silv2991@umn.edu", "309280", "Seth Silverman", "student");
+        dbHelper.createUser("neyx0019@umn.edu", "796981", "Thomas Ney", "student");
+        dbHelper.createUser("zhong240@umn.edu", "20170401", "Jia Zhong", "student");
+        dbHelper.createUser("sunda134@umn.edu","5324659","Aarti Rajan","student");
+        dbHelper.createUser("jagra001@umn.edu","5444099","Anushree Jagrawal","student");
+        dbHelper.createUser("nguy2152@umn.edu","986098","Dianna Nguyen","student");
+        dbHelper.createUser("gilm7783@umn.edu", "987897","David Gilmnan", "student");
+
+        // create dummy user event interest database for this app
+        // Changye
+        ArrayList<String> interest_changye = new ArrayList<>();
+        interest_changye.add("Photography");
+        interest_changye.add("Movie");
+        interest_changye.add("Social");
+        interest_changye.add("Free Food");
+        itHelper.addEntry("lixx3013@umn.edu", interest_changye);
+        // Chris
+        ArrayList<String> interest_chris = new ArrayList<>();
+        interest_chris.add("Academics");
+        interest_chris.add("Sport");
+        interest_chris.add("Recreation");
+        interest_chris.add("Social");
+        itHelper.addEntry("fanxx332@umn.edu", interest_chris);
+        // James
+        ArrayList<String> interest_james = new ArrayList<>();
+        interest_james.add("Movie");
+        interest_james.add("Academics");
+        interest_james.add("Free Food");
+        interest_james.add("Sport");
+        itHelper.addEntry("smit7082@umn.edu", interest_james);
+        // Seth
+        ArrayList<String> interest_seth = new ArrayList<>();
+        interest_seth.add("Music");
+        interest_seth.add("Sport");
+        interest_seth.add("Free Food");
+        interest_seth.add("Social");
+        itHelper.addEntry("silv2991@umn.edu", interest_seth);
+        // Thomas
+        ArrayList<String> interest_thomas = new ArrayList<>();
+        interest_thomas.add("Academics");
+        interest_thomas.add("Photography");
+        interest_thomas.add("Social");
+        interest_thomas.add("Recreation");
+        itHelper.addEntry("neyx0019@umn.edu", interest_thomas);
+        // Jia
+        ArrayList<String> interest_jia = new ArrayList<>();
+        interest_jia.add("Movie");
+        interest_jia.add("Photography");
+        interest_jia.add("Free Food");
+        interest_jia.add("Recreation");
+        itHelper.addEntry("zhong240@umn.edu", interest_jia);
+        // Aarti
+        ArrayList<String> interest_aarti = new ArrayList<>();
+        interest_aarti.add("Music");
+        interest_aarti.add("Movie");
+        interest_aarti.add("Social");
+        interest_aarti.add("Academics");
+        itHelper.addEntry("sunda134@umn.edu", interest_aarti);
+        // Anushree
+        ArrayList<String> interest_anushree = new ArrayList<>();
+        interest_anushree.add("Academics");
+        interest_anushree.add("Sport");
+        interest_anushree.add("Recreation");
+        interest_anushree.add("Movie");
+        itHelper.addEntry("jagra001@umn.edu", interest_anushree);
+        // Dianna
+        ArrayList<String> interest_dianna = new ArrayList<>();
+        interest_dianna.add("Movie");
+        interest_dianna.add("Music");
+        interest_dianna.add("Recreation");
+        interest_dianna.add("Free Food");
+        itHelper.addEntry("nguy2152@umn.edu", interest_dianna);
+        // David
+        ArrayList<String> interest_david = new ArrayList<>();
+        interest_david.add("Social");
+        interest_david.add("Sport");
+        interest_david.add("Photography");
+        interest_david.add("Free Food");
+        itHelper.addEntry("gilm7783@umn.edu", interest_david);
+
+
+        signinBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (login()) {
+                    // TODO: receive user email in main activity
+                    String email = emailTag.getText().toString();
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    i.putExtra("email", email);
+                    startActivity(i);
+                    finish();
                 }
-                return false;
+                else{
+                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+
+
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
-
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
-    }
-
-    private void populateAutoComplete() {
-        if (!mayRequestContacts()) {
-            return;
-        }
-
-        getLoaderManager().initLoader(0, null, this);
-    }
-
-    private boolean mayRequestContacts() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return true;
-        }
-        if (checkSelfPermission(READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
-        if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(android.R.string.ok, new View.OnClickListener() {
-                        @Override
-                        @TargetApi(Build.VERSION_CODES.M)
-                        public void onClick(View v) {
-                            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
-                        }
-                    });
-        } else {
-            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
-        }
-        return false;
-    }
-
-    /**
-     * Callback received when a permissions request has been completed.
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_READ_CONTACTS) {
-            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                populateAutoComplete();
-            }
-        }
-    }
-
-
-    /**
-     * Attempts to sign in or register the account specified by the login form.
-     * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login attempt is made.
-     */
-    private void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
-
-        // Reset errors.
-        mEmailView.setError(null);
-        mPasswordView.setError(null);
-
-        // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
-
-        boolean cancel = false;
-        View focusView = null;
-
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
-        }
-
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
-        }
-    }
-
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
-    }
-
-    /**
-     * Shows the progress UI and hides the login form.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginFormView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-                }
-            });
-
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
-        } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-        }
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return new CursorLoader(this,
-                // Retrieve data rows for the device user's 'profile' contact.
-                Uri.withAppendedPath(ContactsContract.Profile.CONTENT_URI,
-                        ContactsContract.Contacts.Data.CONTENT_DIRECTORY), ProfileQuery.PROJECTION,
-
-                // Select only email addresses.
-                ContactsContract.Contacts.Data.MIMETYPE +
-                        " = ?", new String[]{ContactsContract.CommonDataKinds.Email
-                .CONTENT_ITEM_TYPE},
-
-                // Show primary email addresses first. Note that there won't be
-                // a primary email address if the user hasn't specified one.
-                ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        List<String> emails = new ArrayList<>();
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            emails.add(cursor.getString(ProfileQuery.ADDRESS));
-            cursor.moveToNext();
-        }
-
-        addEmailsToAutoComplete(emails);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoader) {
-
-    }
-
-    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this,
-                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
-
-        mEmailView.setAdapter(adapter);
-    }
-
-
-    private interface ProfileQuery {
-        String[] PROJECTION = {
-                ContactsContract.CommonDataKinds.Email.ADDRESS,
-                ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
-        };
-
-        int ADDRESS = 0;
-        int IS_PRIMARY = 1;
-    }
-
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
-            // TODO: register the new account here.
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if (success) {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
                 finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
-        }
+        });
+    }// onCreate()
 
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
+
+    /**
+     * define all clickable tags in login page
+     */
+    public void define() {
+        emailTag = (EditText) findViewById(R.id.input_email);
+        passwordTag = (EditText) findViewById(R.id.input_password);
+        signinBtn = (Button) findViewById(R.id.btn_login);
+        signupBtn = (TextView) findViewById(R.id.link_signup);
     }
-}
 
+    /**
+     * log in validation process
+     * @return: return true if all inputs are correct, otherwise return false;
+     */
+    public boolean login() {
+        boolean loginChecked = true;
+        String email = emailTag.getText().toString();
+        String password = passwordTag.getText().toString();
+
+        // check if user is registered
+        if (dbHelper.matched(email)) {
+            // check if user has correct password
+            if (password.equals(dbHelper.getPassword(email))) {
+                Toast.makeText(LoginActivity.this, "Congrats: login Successful", Toast.LENGTH_LONG)
+                        .show();
+            }
+            else{
+                Toast.makeText(LoginActivity.this, "Username or password does not match", Toast
+                        .LENGTH_LONG).show();
+                passwordTag.setError("");
+                emailTag.setError("");
+                loginChecked = false;
+            }
+
+        }
+        // login failed
+        else {
+            Toast.makeText(LoginActivity.this, "Username or password does not match", Toast
+                    .LENGTH_LONG).show();
+            passwordTag.setError("");
+            emailTag.setError("");
+            loginChecked = false;
+        }
+
+        return loginChecked;
+    }
+
+
+
+}

@@ -62,8 +62,7 @@ public class Calendar_tab extends Fragment implements AdapterView.OnItemSelected
                         android.R.layout.simple_spinner_item);
 
         // Specify the layout to use when the list of choices appears
-        adapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Apply the adapter to the spinner
         dropdown.setAdapter(adapter);

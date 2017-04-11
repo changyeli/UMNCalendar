@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/friend_pic"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:elevation="3dp"
+        android:padding="5dp"
+        android:paddingBottom="5dp"
+        android:paddingEnd="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingStart="5dp"
+        android:paddingTop="5dp"
+        app:srcCompat="@mipmap/james"
+        android:contentDescription="" />
+
+    <TextView
+        android:id="@+id/friend_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:padding="15dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:layout_alignBottom="@+id/friend_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        app:srcCompat="@mipmap/unfollow_btn"
+        android:layout_alignBottom="@+id/friend_name"
+        android:layout_toStartOf="@+id/removeFriend"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/removeFriend"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/friend_name"
+        android:layout_marginEnd="5dp"
+        android:elevation="5dp"
+        android:padding="5dp"
+        android:text="Unfollow"
+        android:textColor="@color/colorPrimary" />
+</RelativeLayout>

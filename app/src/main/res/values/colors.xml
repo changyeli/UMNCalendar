@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#800000</color>
     <color name="colorPrimaryDark">#000000</color>
+    <color name="windowBackground">#800000</color>
     <color name="colorAccent">#ffc054</color>
     <color name="black">#000000</color>
     <color name="lightgrey">#808080</color>

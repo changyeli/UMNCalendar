@@ -1,5 +1,6 @@
 package umn.umncalendar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -10,7 +11,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 
 /**
  * Created by zien on 4/8/17.
@@ -21,6 +26,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
+    private DatabaseHelper dbHelper = new DatabaseHelper();
+    private InterestHelper itHelper = new InterestHelper();
+
+    /**
+     *  The array adapter for saving searched results
+     */
+    private ArrayAdapter<String> adapter;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_event_view, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menuSearch) {
+            Intent i = new Intent(this,SearchEvent.class);
+            startActivity(i);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // get user info and interest list
+        String user_email = getIntent().getStringExtra("email");
+        String user_name = dbHelper.getFullName(user_email);
+        ArrayList<String> user_interest = itHelper.getInterests(user_email);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -97,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else  if (id == R.id.friends){
             Log.d("CLICKED: ", "THIRD FRAGMENT");
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.containerView, new Profile()).commit();
+            fragmentTransaction.replace(R.id.containerView, new FriendsFragment()).commit();
 
 
         }
