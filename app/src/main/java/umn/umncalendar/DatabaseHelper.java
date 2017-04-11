@@ -60,6 +60,7 @@ public class DatabaseHelper {
     }
 
 
+
     /**
      * search by email
      * @return: a list contains all registered email

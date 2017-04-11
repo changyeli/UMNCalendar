@@ -19,12 +19,10 @@ public class UserInterest extends AppCompatActivity {
     // clickable variables
     private CheckBox checkbox_music;
     private CheckBox checkbox_movie;
-    private CheckBox checkbox_game;
     private CheckBox checkbox_sport;
     private CheckBox checkbox_career;
     private CheckBox checkbox_recreation;
-    private CheckBox checkbox_late_night;
-    private CheckBox checkbox_talk;
+    private CheckBox checkbox_food;
     private CheckBox checkbox_culture;
     private CheckBox checkbox_photo;
     private Button continue_interest;
@@ -64,14 +62,13 @@ public class UserInterest extends AppCompatActivity {
     public void define(){
         checkbox_music = (CheckBox)findViewById(R.id.checkbox_music);
         checkbox_movie = (CheckBox)findViewById(R.id.checkbox_movie);
-        checkbox_game = (CheckBox)findViewById(R.id.checkbox_game);
         checkbox_sport = (CheckBox)findViewById(R.id.checkbox_sport);
         checkbox_career = (CheckBox)findViewById(R.id.checkbox_career);
         checkbox_recreation = (CheckBox)findViewById(R.id.checkbox_recreation);
-        checkbox_late_night = (CheckBox)findViewById(R.id.checkbox_late_night);
-        checkbox_talk = (CheckBox)findViewById(R.id.checkbox_talk);
         checkbox_culture = (CheckBox)findViewById(R.id.checkbox_culture);
         checkbox_photo = (CheckBox)findViewById(R.id.checkbox_photo);
+        checkbox_food = (CheckBox)findViewById(R.id.checkbox_food);
+
         continue_interest = (Button)findViewById(R.id.continue_interest);
         text_welcome = (TextView)findViewById(R.id.text_welcome);
         text_welcome_message = (TextView)findViewById(R.id.text_welcome_message);
@@ -88,23 +85,18 @@ public class UserInterest extends AppCompatActivity {
         if (checkbox_music.isChecked()){
             addedInterest.add(checkbox_music.getHint().toString());
         }
-        if (checkbox_talk.isChecked()){
-            addedInterest.add(checkbox_talk.getHint().toString());
-        }
         if (checkbox_movie.isChecked()){
             addedInterest.add(checkbox_movie.getHint().toString());
         }
-        if (checkbox_late_night.isChecked()){
-            addedInterest.add(checkbox_late_night.getHint().toString());
-        }
+
         if (checkbox_recreation.isChecked()){
             addedInterest.add(checkbox_recreation.getHint().toString());
         }
         if (checkbox_career.isChecked()){
            addedInterest.add(checkbox_career.getHint().toString());
         }
-        if (checkbox_game.isChecked()){
-           addedInterest.add(checkbox_game.getHint().toString());
+        if (checkbox_food.isChecked()){
+            addedInterest.add(checkbox_food.getHint().toString());
         }
         if (checkbox_sport.isChecked()){
             addedInterest.add(checkbox_sport.getHint().toString());

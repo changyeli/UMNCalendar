@@ -180,6 +180,13 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Congrats: login Successful", Toast.LENGTH_LONG)
                         .show();
             }
+            else{
+                Toast.makeText(LoginActivity.this, "Username or password does not match", Toast
+                        .LENGTH_LONG).show();
+                passwordTag.setError("");
+                emailTag.setError("");
+                loginChecked = false;
+            }
 
         }
         // login failed
