@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -19,36 +20,23 @@ import java.util.List;
  */
 public class Notifications extends Fragment {
 
-
-//    public Notifications() {
-//
-//    }
-
-
-
-
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_notifications, container, false);
-//    }
-//
-//
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View customView = inflater.inflate(R.layout.fragment_notifications, container, false);
         NotificationsManager nm = new NotificationsManager();
-        List<Event> notificationsList = nm.getNotificationsList();
+        List<Event> notificationsList = nm.getMyNotifications();
 
-        ListAdapter listAdapter = new RecommendedTabAdapter(this.getContext(), notificationsList);
-
-        ListView listView = (ListView)customView.findViewById(R.id.nList);
-        listView.setAdapter(listAdapter);
+        ImageView im=(ImageView) customView.findViewById(R.id.noNotifications);
+        if (notificationsList.size()==0){
+            im.setVisibility(View.VISIBLE);
+        }
+        else {
+            ListView listView = (ListView)customView.findViewById(R.id.nList);
+            ListAdapter listAdapter = new NotificationTabAdapter(this.getContext(), notificationsList);
+            listView.setAdapter(listAdapter);
+            im.setVisibility(View.INVISIBLE);
+        }
 
 
         return customView;
