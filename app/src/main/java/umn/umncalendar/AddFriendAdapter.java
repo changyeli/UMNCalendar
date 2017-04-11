@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View customView = layoutInflater.inflate(R.layout.custom_row_friends, parent, false);
+        View customView = layoutInflater.inflate(R.layout.custom_row_add_friend, parent, false);
 
         User user = getItem(position);
         TextView name = (TextView) customView.findViewById(R.id.friend_name);
@@ -38,19 +39,18 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
 
         name.setText(user.getUser_name());
         pic.setImageResource(user.getUser_pic());
-        setRemoveFriendListener(customView,user);
+        setAddFriendListener(customView,user);
         return customView;
     }
 
-    public void setRemoveFriendListener(View customView, final User friend) {
-        Button cancelRsvp = (Button) customView.findViewById(R.id.unfriend);
+    public void setAddFriendListener(View customView, final User friend) {
+        final Button addThisFriend = (Button) customView.findViewById(R.id.add_friend);
         // cancelRsvp.setText("Add");
-        cancelRsvp.setOnClickListener(new View.OnClickListener() {
+        addThisFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setCancelable(true);
-                //builder.setTitle("Are you sure you remove this person?");
                 builder.setMessage("Are you sure you want to add " + friend.getUser_name() + " to your friend list?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 

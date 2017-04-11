@@ -51,7 +51,7 @@ public class FriendsFragment extends Fragment {//implements SearchView.OnQueryTe
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent (getActivity(), AddFriendActivity.class);
+                Intent intent = new Intent(getContext(), AddFriendActivity.class);
                 startActivity(intent);
             }
         });

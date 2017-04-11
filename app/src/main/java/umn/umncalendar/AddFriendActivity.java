@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -20,7 +21,19 @@ public class AddFriendActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_friend);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.add_friend_toolbar);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.add_friend_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        myToolbar.setTitleTextColor(android.graphics.Color.WHITE);
+        myToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_18dp);
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddFriendActivity.super.onBackPressed();
+            }
+        });
 
         //add toolbar func
         List<User> userList = User.getAllUsers();
@@ -28,5 +41,6 @@ public class AddFriendActivity extends AppCompatActivity {
         ListAdapter listAdapter = new AddFriendAdapter(this, userList);
         //ListView listView = (ListView)customView.findViewById(R.id.friend_list);
         listView.setAdapter(listAdapter);
+
     }
 }
