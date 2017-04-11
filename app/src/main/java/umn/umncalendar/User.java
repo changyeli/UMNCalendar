@@ -11,11 +11,23 @@ public class User {
     private int user_pic;
     private ArrayList<String> user_friends = new ArrayList<>();
     private static ArrayList<User> allUsers = initUserList();
+    private static ArrayList<User> pendingUsers = initPendingList();
+
+    public static ArrayList<User> getPendingUsers() {
+        return pendingUsers;
+    }
 
     private static ArrayList<User> initUserList() {
         ArrayList<User> result = new ArrayList<>();
         result.add(new User("Marian",R.mipmap.marian));
         result.add(new User("Thomas",R.mipmap.thomas));
+        return result;
+    }
+
+    private static ArrayList<User> initPendingList() {
+        ArrayList<User> result = new ArrayList<>();
+        result.add(new User("Professor Norman",R.mipmap.prof_norman));
+        result.add(new User("James",R.mipmap.james));
         return result;
     }
 
@@ -111,4 +123,10 @@ public class User {
     public static void setFriends(List<User> friends) {
         User.friends = friends;
     }
+
+    public static List<User> setAllUsers(List<User> friends) {
+        allUsers=(ArrayList<User>) friends;
+        return allUsers;
+    }
+
 }

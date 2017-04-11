@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -15,7 +14,7 @@ import java.util.List;
  * Created by cfan9 on 4/10/2017.
  */
 
-public class AddFriendActivity extends AppCompatActivity {
+public class InviteFriendActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,20 +30,15 @@ public class AddFriendActivity extends AppCompatActivity {
         myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddFriendActivity.super.onBackPressed();
+                InviteFriendActivity.super.onBackPressed();
             }
         });
 
         //add toolbar func
         List<User> userList = User.getAllUsers();
         ListView listView = (ListView)findViewById(R.id.user_list);
-        ListAdapter listAdapter = new AddFriendAdapter(this, userList);
+        ListAdapter listAdapter = new InviteFriendAdapter(this, userList);
         //ListView listView = (ListView)customView.findViewById(R.id.friend_list);
         listView.setAdapter(listAdapter);
-
-       /* ListView pending = (ListView)findViewById(R.id.pending_list);
-        ListAdapter pAdapter = new AddFriendAdapter(this, User.getPendingUsers());
-        //ListView listView = (ListView)customView.findViewById(R.id.friend_list);
-        pending.setAdapter(pAdapter)*/;
     }
 }

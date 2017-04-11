@@ -26,7 +26,7 @@ import java.util.List;
  * Created by AartiRajan on 4/9/2017.
  */
 
-public class EventDetailsActivity extends AppCompatActivity {
+public class EventDetailsActivity extends AppCompatActivity{
     View currView;
     String eventNm;
     Button rsvp;
@@ -113,8 +113,21 @@ public class EventDetailsActivity extends AppCompatActivity {
                     cancelEvent();
             }
         });
-        addOrRemoveRSVP();
 
+
+        Button addFriends = (Button)findViewById(R.id.addFriendsBtn);
+        addFriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent =new Intent(getThis(),InviteFriendActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    public EventDetailsActivity getThis(){
+        return this;
     }
 
     @Override

@@ -52,6 +52,7 @@ public class Event {
     String foodDesc;
     String entryDesc;
     int map;
+    private static ArrayList<User> invited = new ArrayList<>();
 
     public String getImageName() {
         return imageName;
