@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 /**
  * Created by zien on 4/8/17.
  */
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
+    private DatabaseHelper dbHelper = new DatabaseHelper();
+    private InterestHelper itHelper = new InterestHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // get user info and interest list
+        String user_email = getIntent().getStringExtra("email");
+        String user_name = dbHelper.getFullName(user_email);
+        ArrayList<String> user_interest = itHelper.getInterests(user_email);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
