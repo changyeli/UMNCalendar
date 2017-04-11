@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -55,9 +56,10 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getContext(), "Friend request has been sent to " + friend.getUser_name(), Toast.LENGTH_SHORT).show();
                         // How to remove the selected item?
-                        User.getFriends().add(friend);
-                        notifyDataSetChanged();
+                        //User.getFriends().add(friend);
+                        //notifyDataSetChanged();
                     }
 
                 });
