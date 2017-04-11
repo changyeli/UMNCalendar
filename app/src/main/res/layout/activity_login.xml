@@ -2,7 +2,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/windowBackground"
     >
 
     <!-- SIGN IN SETUP-->
@@ -13,7 +12,6 @@
         android:paddingTop="26dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
-        android:textColor="@color/white"
         >
         <!-- TODO: Add LOGO here-->
 
@@ -31,8 +29,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textAllCaps="false"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -48,8 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_password"
-                android:inputType="textPassword"
-                android:textColorLink="@android:color/white" />
+                android:inputType="textPassword"/>
         </android.support.design.widget.TextInputLayout>
 
         <!--login button-->

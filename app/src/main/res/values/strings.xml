@@ -3,7 +3,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_name">Full Name</string>>
-    <string name="prompt_email">Your email end with @umn.edu</string>
+    <string name="prompt_email">Your email id ending with @umn.edu</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_x500">x500</string>
     <string name="action_sign_in">Already a member? Login</string>
