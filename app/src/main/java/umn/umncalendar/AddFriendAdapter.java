@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -59,7 +60,8 @@ public class AddFriendAdapter extends ArrayAdapter<User> {
                         //User.getFriends().add(friend);
                         //User.getFriends().remove(friend);
                         //notifyDataSetChanged();
-                        builder.setMessage("Friend request has been sent to " + friend.getUser_name());
+                        Toast.makeText(getContext(), "Friend request has been sent to " + friend.getUser_name(), Toast.LENGTH_SHORT).show();
+                        //builder.setMessage("Friend request has been sent to " + friend.getUser_name());
                     }
 
                 });
