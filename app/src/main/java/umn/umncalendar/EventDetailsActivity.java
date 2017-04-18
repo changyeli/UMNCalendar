@@ -113,7 +113,7 @@ public class EventDetailsActivity extends AppCompatActivity{
                     cancelEvent();
             }
         });
-
+        addOrRemoveRSVP();
 
         Button addFriends = (Button)findViewById(R.id.addFriendsBtn);
         addFriends.setOnClickListener(new View.OnClickListener() {
